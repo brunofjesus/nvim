@@ -14,6 +14,7 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
 	{ import = "bruno.plugin" },
 	{ import = "bruno.plugin.lsp" },
+  { import = "bruno.plugin.dap" },
 }, {
 	checker = {
 		enabled = true,

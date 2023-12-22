@@ -42,14 +42,16 @@ return {
                             nvimtree = true,
                             treesitter = true,
                             notify = false,
+                            dap =true,
+                            dap_ui = true,
                             mini = {
                                 enabled = true,
                                 indentscope_color = "",
                             },
-                  			    telescope = {
-                  				    enabled = true,
-                  				    style = "nvchad"
-                  			    },
+                            telescope = {
+                              enabled = true,
+                              style = "nvchad"
+                            },
                             indent_blankline = {
                               enabled = true,
                               scope_color = "lavender", -- catppuccin color (eg. `lavender`) Default: text

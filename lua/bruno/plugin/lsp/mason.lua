@@ -46,6 +46,7 @@ return {
         "gofumpt",
         "golines",
         "gotests",
+        "delve",
       },
     })
   end,
