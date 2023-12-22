@@ -46,10 +46,15 @@ return {
                                 enabled = true,
                                 indentscope_color = "",
                             },
-			    telescope = {
-				    enabled = true,
-				    style = "nvchad"
-			    }
+                  			    telescope = {
+                  				    enabled = true,
+                  				    style = "nvchad"
+                  			    },
+                            indent_blankline = {
+                              enabled = true,
+                              scope_color = "lavender", -- catppuccin color (eg. `lavender`) Default: text
+                              colored_indent_levels = false,
+                            },
                             -- For more plugins integrations (https://github.com/catppuccin/nvim#integrations)
                         },
 		})
