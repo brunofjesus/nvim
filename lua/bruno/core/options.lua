@@ -21,8 +21,7 @@ opt.smartcase = true -- if you include mixed case in your search, assumes you wa
 opt.cursorline = true -- highlight the current cursor line
 
 -- appearance
-
-opt.background = "light" 
+opt.background = "light"
 opt.signcolumn = "yes" -- show sign column so that text doesn't shift
 
 -- backspace
