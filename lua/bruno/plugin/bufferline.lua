@@ -6,7 +6,7 @@ return {
 		options = {
 			mode = "buffer",
 			separator_style = "sloped",
-			--diagnostics = "nvim_lsp" | "coc",
+			diagnostics = "nvim_lsp",
 		},
 	},
 }
