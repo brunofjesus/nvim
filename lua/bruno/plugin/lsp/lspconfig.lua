@@ -32,6 +32,9 @@ return {
       opts.desc = "Show LSP type definitions"
       keymap.set("n", "gt", "<cmd>Telescope lsp_type_definitions<CR>", opts) -- show lsp type definitions
 
+      opts.desc = "Format current file"
+      keymap.set("n", "gf", vim.lsp.buf.format, opts) -- show lsp type definitions
+
       opts.desc = "See available code actions"
       keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts) -- see available code actions, in visual mode will apply to selection
 
@@ -130,6 +133,8 @@ return {
       gopls = {
         completeUnimported = true,
         usePlaceholders = true,
+        gofumpt = true,
+        staticcheck = true,
         analyses = {
           unusedparams = true,
         }
