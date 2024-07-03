@@ -2,7 +2,7 @@ return {
   "neovim/nvim-lspconfig",
   event = { "BufReadPre", "BufNewFile" },
   dependencies = {
-		"hrsh7th/cmp-nvim-lsp",
+    "hrsh7th/cmp-nvim-lsp",
     { "antosha417/nvim-lsp-file-operations", config = true },
   },
   config = function()
@@ -122,37 +122,37 @@ return {
         },
       },
     })
-  -- configure golang
-  lspconfig["gopls"].setup({
-    on_attach = on_attach,
-    capabilities = capabilities,
-    cmd = { "gopls" },
-    filetypes = { "go", "gomod", "gowork", "gotmpl", "templ" },
-    root_dir = lsputil.root_pattern("go.work", "go.mod", ".git"),
-    settings = {
-      gopls = {
-        completeUnimported = true,
-        usePlaceholders = true,
-        gofumpt = true,
-        staticcheck = true,
-        analyses = {
-          unusedparams = true,
+    -- configure golang
+    lspconfig["gopls"].setup({
+      on_attach = on_attach,
+      capabilities = capabilities,
+      cmd = { "gopls" },
+      filetypes = { "go", "gomod", "gowork", "gotmpl", "templ" },
+      root_dir = lsputil.root_pattern("go.work", "go.mod", ".git"),
+      settings = {
+        gopls = {
+          completeUnimported = true,
+          usePlaceholders = false,
+          gofumpt = true,
+          staticcheck = true,
+          analyses = {
+            unusedparams = true,
+          }
         }
       }
-    }
-  })
+    })
 
-  -- golang templ
-  lspconfig["templ"].setup({
-    on_attach = on_attach,
-    flags = {
+    -- golang templ
+    lspconfig["templ"].setup({
+      on_attach = on_attach,
+      flags = {
         debounce_text_changes = 150,
-    },
-  })
-  vim.filetype.add({
-    extension = {
-     templ = "templ",
-    },
-  })
+      },
+    })
+    vim.filetype.add({
+      extension = {
+        templ = "templ",
+      },
+    })
   end,
 }
