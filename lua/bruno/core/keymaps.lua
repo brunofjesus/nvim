@@ -10,7 +10,7 @@ keymap.set("n", "<Esc>", ":nohl<CR>", { desc = "Clear search highlights" })
 keymap.set("n", "<leader>sv", "<C-w>v", { desc = "Split window vertically" }) -- split window vertically
 keymap.set("n", "<leader>sh", "<C-w>s", { desc = "Split window horizontally" }) -- split window horizontally
 keymap.set("n", "<leader>se", "<C-w>=", { desc = "Make splits equal size" }) -- make split windows equal width & height
-keymap.set("n", "<leader>sd", "<cmd>bd<CR>", { desc = "Close current buffer" }) -- close current buffer
+keymap.set("n", "<leader>sd", "<cmd>bp|bd #<CR>", { desc = "Close current buffer" }) -- close current buffer (keep split)
 keymap.set("n", "<leader>sx", "<cmd>close<CR>", { desc = "Close current split" }) -- close current split window
 
 
