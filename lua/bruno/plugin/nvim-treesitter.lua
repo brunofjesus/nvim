@@ -43,6 +43,7 @@ return {
           "query",
           "go",
           "templ",
+          "python",
         },
         incremental_selection = {
           enable = true,
