@@ -31,6 +31,8 @@ return {
         "lua_ls",
         "graphql",
         "emmet_ls",
+        -- php
+        "intelephense",
       },
       -- auto-install configured servers (with lspconfig)
       automatic_installation = true, -- not the same as ensure_installed
