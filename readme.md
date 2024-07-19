@@ -198,6 +198,7 @@ Requires `fzf` and `ripgrep`.
 `<leader>fs` - Find string in current working directory
 `<leader>fc` - Find string under cursor in the current working directory
 `<leader>fb` - Find buffers
+`<leader>fe` - Find emoji
 `<leader>fgm` - Find git commits
 `<leader>fgs` - Find git status
 ```
