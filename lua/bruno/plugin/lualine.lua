@@ -10,6 +10,13 @@ return {
 				theme = "catppuccin",
 			},
 			sections = {
+        lualine_c = {
+          {
+            'filename',
+            filestatus = true,
+            path = 1,
+          }
+        },
 				lualine_x = {
 					{
 						lazy_status.updates,
