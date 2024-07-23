@@ -208,6 +208,7 @@ Requires `fzf` and `ripgrep`.
 `<C-k>` - Move to previous result (up)
 `<C-j>` - Move to next result (down)
 `<C-q>` - Send to qflist
+`<C-6> or <C-^> - telescope-menufacture (only for ff/fr/fs/fc)
 ```
 
 ### vim-maximizer
