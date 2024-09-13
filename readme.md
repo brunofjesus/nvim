@@ -256,7 +256,7 @@ Official Neovim LSP Config
 
 #### LSP configurations
 - html
-- tsserver
+- ts_ls
 - cssls
 - graphql
 - emmet_ls
@@ -292,7 +292,7 @@ Package manager for neovim
 Installs the following tools:
 
 - LSP
-   - tsserver
+   - ts_ls
    - html
    - cssls
    - lua_ls
