@@ -15,7 +15,6 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
 	{ import = "plugin" },
-	{ import = "plugin.lsp" },
   { import = "plugin.dap" },
 }, {
 	checker = {
