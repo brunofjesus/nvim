@@ -37,9 +37,5 @@ return {
     keymap.set("n", "<leader>fc", menufacture.grep_string, { desc = "Find string under cursor in cwd" })
     keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<cr>", { desc = "Find buffers" })
     keymap.set("n", "<leader>fe", "<cmd>Telescope symbols<cr>", { desc = "Find emoji" })
-
-    -- git
-    keymap.set("n", "<leader>fgm", "<cmd>Telescope git_commits<cr>", { desc = "Find git commits" })
-    keymap.set("n", "<leader>fgs", "<cmd>Telescope git_status<cr>", { desc = "Find git status" })
   end,
 }

@@ -8,13 +8,36 @@ This NeoVim configuration is mostly used for GoLang coding.
 
 ```help
 `<Esc>` - Clear search highlights
+`<tab>` - Go to next buffer
+`<S-tab>` - Go to previous buffer
 `<leader>sv` - Split window vertically
 `<leader>sh` - Split window horizontally
 `<leader>se` - Make splits equal size
-`<leader>sd` - Close current buffer
+`<leader>bd` - Delete buffer
 `<leader>sx` - Close current split
-`<tab>` - Go to next buffer
-`<S-tab>` - Go to previous buffer
+`<leader>z` - Toggle zen mode
+`<leader>Z` - Toggle zen zoom mode
+`<leader>.` - Toggle scratch buffer
+`<leader>S` - Select scratch buffer
+`<leader>n` - Notification history
+`<leader>un` - Dismiss all notifications`
+`<leader>cR` - Rename file 
+`<leader>gB` - Git browse
+`<leader>gb` - Git blame line
+`<leader>gf` - Lazygit current file history`
+`<leader>gg` - Lazygit`
+`<leader>gl` - Lagygit log`
+`<C-/>` - Toggle Terminal
+`<leader>us` - Toggle spelling
+`<leader>uw` - Toggle wrap
+`<leader>ul` - Toggle line number
+`<leader>uL` - Toggle relative number
+`<leader>uc` - Toggle conceal
+`<leader>uT` - Toggle Treesitter highlight
+`<leader>ub` - Toggle dark theme
+`<leader>uh` - Toggle inlay hints
+`<leader>ug` - Toggle indent
+`<leader>uD` - Toggle dim
 ```
 
 ## Plugins
@@ -29,71 +52,9 @@ Shows buffers as "tabs" on the top portion of the editor
 [catppuccin/nvim](https://github.com/catppuccin/nvim)
 Applies the Catppuccin theme to NeoVim. Using the `mocha` flavor.
 
-### Comment
-[numToStr/Comment.nvim](https://github.com/numToStr/Comment.nvim)
-Code commenting keybindings.
-
-#### Keybindings
-
-- NORMAL mode
-
-```help
-`gcc` - Toggles the current line using linewise comment
-`gbc` - Toggles the current line using blockwise comment
-`[count]gcc` - Toggles the number of line given as a prefix-count using linewise
-`[count]gbc` - Toggles the number of line given as a prefix-count using blockwise
-`gc[count]{motion}` - (Op-pending) Toggles the region using linewise comment
-`gb[count]{motion}` - (Op-pending) Toggles the region using blockwise comment
-`gco` - Insert comment to the next line and enters INSERT mode
-`gcO` - Insert comment to the previous line and enters INSERT mode
-`gcA` - Insert comment to end of the current line and enters INSERT mode
-```
-
-- VISUAL mode
-
-```help
-`gc` - Toggles the region using linewise comment
-`gb` - Toggles the region using blockwise comment
-```
-
-### Dressing
-[stevearc/dressing.nvim](https://github.com/stevearc/dressing.nvim)
-UI improvements for selection and input dialogs.
-
 ### GitSigns
 [lewis6991/gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)
 Git decorations
-
-
-#### Keybindings
-
-- NORMAL mode
-
-```help
-`]c` - Go to next hunk
-`[c` - Go to previous hunk
-`<leader>hs` - Git stage hunk
-`<leader>hr` - Git reset hunk
-`<leader>hS` - Git stage buffer
-`<leader>hu` - Git undo stage hunk
-`<leader>hR` - Git reset buffer
-`<leader>hp` - Git preview hunk
-`<leader>hb` - Git blame line
-`<leader>hd` - Git diff
-`<leader>hD` - Git diff HEAD
-`<leader>td` - Toggle deleted
-`<leader>tb` - Toggle current line blame
-```
-
-- VISUAL mode
-```help
-`<leader>hs` - Git stage hunk
-`<leader>hr` - Git reset hunk
-```
-
-### Indent-blankline
-[lukas-reineke/indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim)
-Adds indentation guides.
 
 ### Lualine
 [nvim-lualine/lualine.nvim](https://github.com/nvim-lualine/lualine.nvim)
@@ -199,8 +160,6 @@ Requires `fzf` and `ripgrep`.
 `<leader>fc` - Find string under cursor in the current working directory
 `<leader>fb` - Find buffers
 `<leader>fe` - Find emoji
-`<leader>fgm` - Find git commits
-`<leader>fgs` - Find git status
 ```
 
 - On Fuzzy Finder
@@ -209,19 +168,6 @@ Requires `fzf` and `ripgrep`.
 `<C-j>` - Move to next result (down)
 `<C-q>` - Send to qflist
 `<C-6> or <C-^> - telescope-menufacture (only for ff/fr/fs/fc)
-```
-
-### vim-maximizer
-[szw/vim-maximizer](https://github.com/szw/vim-maximizer)
-Maximizes and restores the current window in Vim.
-
-#### Keybindings
-
-- NORMAL mode
-
-```help
-`<leader>sm` - Toggle maximizer
-`<F3>` - Toggle maximizer
 ```
 
 ### vim-tmux-navigator
