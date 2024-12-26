@@ -290,3 +290,31 @@ Extension to `nvim-dap` providing compatibility with the `go debugger` (`delve`)
 `<leader>dgl` - Debug Last Test
 ```
 
+### avante
+[yetone/avante.nvim](https://github.com/yetone/avante.nvim)
+Cursor AI like plugin for neovim
+
+#### Keybindings
+
+- NORMAL mode
+
+```help
+<leader>aa	Show Sidebar
+<leader>ar	Refresh Sidebar
+<leader>af	Switch Sidebar Focus
+<leader>ae	Edit Selected Blocks
+co	Choose Ours
+ct	Choose Theirs
+ca	Choose All Theirs
+c0	Choose None
+cb	Choose Both
+cc	Choose Cursor
+]x	Move To Previous Conflict
+[x	Move To Next Conflict
+[[	Jump To Previous Codeblocks (Results Window)
+]]	Jump To Next Codeblocks (Results Windows)
+```
+
+### snacks.nvim
+[folke/snacks.nvim](https://github.com/folke/snacks.nvim)
+A collection of small QoL plugins for Neovim.

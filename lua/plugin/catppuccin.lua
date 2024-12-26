@@ -1,6 +1,7 @@
 return {
   "catppuccin/nvim",
   name = "catppuccin",
+  dependencies = { "rasulomaroff/reactive.nvim" },
   priority = 1000,
   config = function()
     require("catppuccin").setup({
@@ -55,6 +56,8 @@ return {
         notify = false,
         dap = true,
         dap_ui = true,
+        snacks = true,
+        render_markdown = true,
         mini = {
           enabled = true,
           indentscope_color = "",
@@ -71,9 +74,11 @@ return {
         -- For more plugins integrations (https://github.com/catppuccin/nvim#integrations)
       },
     })
+
+    require('reactive').setup {
+      load = { 'catppuccin-mocha-cursor', 'catppuccin-mocha-cursorline' }
+    }
     -- setup must be called before loading
     vim.cmd.colorscheme "catppuccin"
-    --    vim.api.nvim_set_hl(0, "LineNr", { fg = "#9399b2", bg = "NONE" })
-    --    vim.api.nvim_set_hl(0, "CursorLineNr", { fg = "#f9e2af", bg = "NONE" })
   end,
 }
