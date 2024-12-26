@@ -19,6 +19,7 @@ opt.smartcase = true -- if you include mixed case in your search, assumes you wa
 
 -- cursor line
 opt.cursorline = true -- highlight the current cursor line
+opt.guicursor = "n-ci:hor30-iCursor-blinkwait300-blinkon200-blinkoff150"
 
 -- appearance
 opt.background = "dark"
