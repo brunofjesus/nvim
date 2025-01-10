@@ -13,7 +13,9 @@ This NeoVim configuration is mostly used for GoLang coding.
 `<leader>sv` - Split window vertically
 `<leader>sh` - Split window horizontally
 `<leader>se` - Make splits equal size
-`<leader>bd` - Delete buffer
+`<leader>sd` - Delete buffer
+`<leader>so` - Delete other buffers
+`<leader>sa` - Delete all buffers
 `<leader>sx` - Close current split
 `<leader>z` - Toggle zen mode
 `<leader>Z` - Toggle zen zoom mode
