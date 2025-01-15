@@ -1,5 +1,8 @@
 # NeoVim Configuration
 
+## Warning
+I'm trying new key combinations, so this might be outdated `<leader>sk` will open all keybindings.
+
 This NeoVim configuration is mostly used for GoLang coding.
 
 ## Keybindings
@@ -10,13 +13,13 @@ This NeoVim configuration is mostly used for GoLang coding.
 `<Esc>` - Clear search highlights
 `<tab>` - Go to next buffer
 `<S-tab>` - Go to previous buffer
-`<leader>sv` - Split window vertically
-`<leader>sh` - Split window horizontally
-`<leader>se` - Make splits equal size
-`<leader>sd` - Delete buffer
-`<leader>so` - Delete other buffers
-`<leader>sa` - Delete all buffers
-`<leader>sx` - Close current split
+`<leader>wv` - Split window vertically
+`<leader>wh` - Split window horizontally
+`<leader>we` - Make splits equal size
+`<leader>wd` - Delete buffer
+`<leader>wo` - Delete other buffers
+`<leader>wa` - Delete all buffers
+`<leader>wx` - Close current split
 `<leader>z` - Toggle zen mode
 `<leader>Z` - Toggle zen zoom mode
 `<leader>.` - Toggle scratch buffer
@@ -131,46 +134,6 @@ Treesiter integration for Neovim
  - query
  - go
  - templ
-
-### outline.nvim
-[hedyhli/outline.nvim](https://github.com/hedyhli/outline.nvim)
-Outline explorer sidebar
-
-#### Keybindings
-
-- NORMAL mode
-
-```help
-`<leader>o` - Toggle outline
-```
-
-### telescope.nvim
-[nvim-telescope/telescope.nvim](https://github.com/nvim-telescope/telescope.nvim/tree/0.1.x)
-
-Fuzzy finder.
-
-Requires `fzf` and `ripgrep`.
-
-#### Keybindings
-
-- NORMAL mode
-
-```help
-`<leader>ff` - Find files in current working directory
-`<leader>fr` - Find recent files
-`<leader>fs` - Find string in current working directory
-`<leader>fc` - Find string under cursor in the current working directory
-`<leader>fb` - Find buffers
-`<leader>fe` - Find emoji
-```
-
-- On Fuzzy Finder
-```help
-`<C-k>` - Move to previous result (up)
-`<C-j>` - Move to next result (down)
-`<C-q>` - Send to qflist
-`<C-6> or <C-^> - telescope-menufacture (only for ff/fr/fs/fc)
-```
 
 ### vim-tmux-navigator
 [christoomey/vim-tmux-navigator](https://github.com/christoomey/vim-tmux-navigator)
