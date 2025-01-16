@@ -99,6 +99,7 @@ return {
     { "<leader>uC",      function() Snacks.picker.colorschemes() end,                            desc = "Colorschemes" },
     { "<leader>qp",      function() Snacks.picker.projects() end,                                desc = "Projects" },
     -- LSP
+    { "gD",              function() Snacks.picker.lsp_declarations() end,                        desc = "Goto Declaration" },
     { "gd",              function() Snacks.picker.lsp_definitions() end,                         desc = "Goto Definition" },
     { "gr",              function() Snacks.picker.lsp_references() end,                          nowait = true,                        desc = "References" },
     { "gi",              function() Snacks.picker.lsp_implementations() end,                     desc = "Goto Implementation" },
