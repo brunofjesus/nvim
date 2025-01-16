@@ -1,5 +1,8 @@
 # NeoVim Configuration
 
+## Warning
+I'm trying new key combinations, so this might be outdated `<leader>sk` will open all keybindings.
+
 This NeoVim configuration is mostly used for GoLang coding.
 
 ## Keybindings
@@ -10,11 +13,13 @@ This NeoVim configuration is mostly used for GoLang coding.
 `<Esc>` - Clear search highlights
 `<tab>` - Go to next buffer
 `<S-tab>` - Go to previous buffer
-`<leader>sv` - Split window vertically
-`<leader>sh` - Split window horizontally
-`<leader>se` - Make splits equal size
-`<leader>bd` - Delete buffer
-`<leader>sx` - Close current split
+`<leader>wv` - Split window vertically
+`<leader>wh` - Split window horizontally
+`<leader>we` - Make splits equal size
+`<leader>wd` - Delete buffer
+`<leader>wo` - Delete other buffers
+`<leader>wa` - Delete all buffers
+`<leader>wx` - Close current split
 `<leader>z` - Toggle zen mode
 `<leader>Z` - Toggle zen zoom mode
 `<leader>.` - Toggle scratch buffer
@@ -129,46 +134,6 @@ Treesiter integration for Neovim
  - query
  - go
  - templ
-
-### outline.nvim
-[hedyhli/outline.nvim](https://github.com/hedyhli/outline.nvim)
-Outline explorer sidebar
-
-#### Keybindings
-
-- NORMAL mode
-
-```help
-`<leader>o` - Toggle outline
-```
-
-### telescope.nvim
-[nvim-telescope/telescope.nvim](https://github.com/nvim-telescope/telescope.nvim/tree/0.1.x)
-
-Fuzzy finder.
-
-Requires `fzf` and `ripgrep`.
-
-#### Keybindings
-
-- NORMAL mode
-
-```help
-`<leader>ff` - Find files in current working directory
-`<leader>fr` - Find recent files
-`<leader>fs` - Find string in current working directory
-`<leader>fc` - Find string under cursor in the current working directory
-`<leader>fb` - Find buffers
-`<leader>fe` - Find emoji
-```
-
-- On Fuzzy Finder
-```help
-`<C-k>` - Move to previous result (up)
-`<C-j>` - Move to next result (down)
-`<C-q>` - Send to qflist
-`<C-6> or <C-^> - telescope-menufacture (only for ff/fr/fs/fc)
-```
 
 ### vim-tmux-navigator
 [christoomey/vim-tmux-navigator](https://github.com/christoomey/vim-tmux-navigator)
@@ -290,3 +255,31 @@ Extension to `nvim-dap` providing compatibility with the `go debugger` (`delve`)
 `<leader>dgl` - Debug Last Test
 ```
 
+### avante
+[yetone/avante.nvim](https://github.com/yetone/avante.nvim)
+Cursor AI like plugin for neovim
+
+#### Keybindings
+
+- NORMAL mode
+
+```help
+<leader>aa	Show Sidebar
+<leader>ar	Refresh Sidebar
+<leader>af	Switch Sidebar Focus
+<leader>ae	Edit Selected Blocks
+co	Choose Ours
+ct	Choose Theirs
+ca	Choose All Theirs
+c0	Choose None
+cb	Choose Both
+cc	Choose Cursor
+]x	Move To Previous Conflict
+[x	Move To Next Conflict
+[[	Jump To Previous Codeblocks (Results Window)
+]]	Jump To Next Codeblocks (Results Windows)
+```
+
+### snacks.nvim
+[folke/snacks.nvim](https://github.com/folke/snacks.nvim)
+A collection of small QoL plugins for Neovim.

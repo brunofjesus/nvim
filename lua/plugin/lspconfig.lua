@@ -17,21 +17,6 @@ return {
       opts.buffer = bufnr
 
       -- set keybinds
-      opts.desc = "Show LSP references"
-      keymap.set("n", "gR", "<cmd>Telescope lsp_references<CR>", opts) -- show definition, references
-
-      opts.desc = "Go to declaration"
-      keymap.set("n", "gD", vim.lsp.buf.declaration, opts) -- go to declaration
-
-      opts.desc = "Show LSP definitions"
-      keymap.set("n", "gd", "<cmd>Telescope lsp_definitions<CR>", opts) -- show lsp definitions
-
-      opts.desc = "Show LSP implementations"
-      keymap.set("n", "gi", "<cmd>Telescope lsp_implementations<CR>", opts) -- show lsp implementations
-
-      opts.desc = "Show LSP type definitions"
-      keymap.set("n", "gt", "<cmd>Telescope lsp_type_definitions<CR>", opts) -- show lsp type definitions
-
       opts.desc = "Format current file"
       keymap.set("n", "gf", vim.lsp.buf.format, opts) -- show lsp type definitions
 
@@ -40,9 +25,6 @@ return {
 
       opts.desc = "Smart rename"
       keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts) -- smart rename
-
-      opts.desc = "Show buffer diagnostics"
-      keymap.set("n", "<leader>D", "<cmd>Telescope diagnostics bufnr=0<CR>", opts) -- show  diagnostics for file
 
       opts.desc = "Show line diagnostics"
       keymap.set("n", "<leader>d", vim.diagnostic.open_float, opts) -- show diagnostics for line

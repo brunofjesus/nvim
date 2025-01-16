@@ -1,5 +1,7 @@
+#TODO: go back to "leoluz/nvim-dap-go" after https://github.com/leoluz/nvim-dap-go/pull/109 is merged
 return {
-  "leoluz/nvim-dap-go",
+  "mfussenegger/nvim-dap-go",
+  branch = "output-mode",
   dependencies = {
     "mfussenegger/nvim-dap",
     "rcarriga/nvim-dap-ui",

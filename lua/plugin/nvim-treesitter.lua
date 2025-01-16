@@ -43,6 +43,7 @@ return {
           "query",
           "go",
           "templ",
+          "gomod",
           "php",
         },
         incremental_selection = {
