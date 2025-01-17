@@ -22,6 +22,7 @@ return {
       }
     },
     picker = {},
+    terminal = {},
   },
   keys = {
     { "<leader>z",       function() Snacks.zen() end,                                            desc = "Toggle Zen Mode" },
