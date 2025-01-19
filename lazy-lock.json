@@ -35,6 +35,7 @@
   "reactive.nvim": { "branch": "master", "commit": "e0a22a42811ca1e7aa7531f931c55619aad68b5d" },
   "render-markdown.nvim": { "branch": "main", "commit": "be3e3ab807059ddd247a802e8253b0cd3edef5a3" },
   "snacks.nvim": { "branch": "main", "commit": "33e1e1689f08a4ffde924e97093c46387b349560" },
+  "tabby.nvim": { "branch": "main", "commit": "c119c91f3ada1a7c62ca2d10685ac8a3e2928fb8" },
   "vim-tmux-navigator": { "branch": "master", "commit": "d847ea942a5bb4d4fab6efebc9f30d787fd96e65" },
   "which-key.nvim": { "branch": "main", "commit": "1f8d414f61e0b05958c342df9b6a4c89ce268766" }
 }
