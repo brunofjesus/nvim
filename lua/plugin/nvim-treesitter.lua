@@ -44,6 +44,7 @@ return {
           "go",
           "templ",
           "gomod",
+          "just",
         },
         incremental_selection = {
           enable = true,
