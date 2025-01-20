@@ -5,7 +5,7 @@ return {
   ---@type snacks.Config
   opts = {
     bigfile = { enabled = true },
-    dashboard = { enabled = true },
+    dashboard = { enabled = false },
     indent = { enabled = true },
     input = { enabled = true },
     notifier = {
@@ -22,6 +22,7 @@ return {
       }
     },
     picker = {},
+    terminal = {},
   },
   keys = {
     { "<leader>z",       function() Snacks.zen() end,                                            desc = "Toggle Zen Mode" },
@@ -76,6 +77,7 @@ return {
     -- git (kind of redundant to the lazygit actions)
     { "<leader>gc",      function() Snacks.picker.git_log() end,                                 desc = "Git Log" },
     { "<leader>gs",      function() Snacks.picker.git_status() end,                              desc = "Git Status" },
+    { "<leader>gt",      function() Snacks.picker.git_branches() end,                            desc = "Git Branches" },
     -- Grep
     { "<leader>sb",      function() Snacks.picker.lines() end,                                   desc = "Buffer Lines" },
     { "<leader>sB",      function() Snacks.picker.grep_buffers() end,                            desc = "Grep Open Buffers" },

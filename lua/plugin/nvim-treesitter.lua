@@ -45,6 +45,7 @@ return {
           "templ",
           "gomod",
           "php",
+          "just",
         },
         incremental_selection = {
           enable = true,

@@ -49,6 +49,7 @@ return {
         "golines",
         "gotests",
         "delve",
+        "golangci-lint",
       },
     })
   end,
