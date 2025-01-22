@@ -4,9 +4,15 @@ return {
   lazy = false,
   version = false, -- set this if you want to always pull the latest change
   opts = {
-    provider = "claude"
+    --provider = "claude"
     -- api_key_name = "cmd:bw get notes anthropic-api-key", -- the shell command must prefixed with `^cmd:(.*)`
     -- api_key_name = {"bw","get","notes","anthropic-api-key"}, -- if it is a table of string, then default to command.
+    provider = "copilot",
+    copilot = {
+      model = "claude-3.5-sonnet",
+      temperature = 0,
+      max_tokens = 8192,
+    },
   },
   -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
   build = "make",
@@ -18,7 +24,12 @@ return {
     --- The below dependencies are optional,
     "hrsh7th/nvim-cmp",            -- autocompletion for avante commands and mentions
     "nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
-    --"zbirenbaum/copilot.lua", -- for providers='copilot'
+    {
+      "zbirenbaum/copilot.lua",    -- for providers='copilot'
+      config = function ()
+        require("copilot").setup({})
+      end,
+    },
     {
       -- support for image pasting
       "HakonHarnes/img-clip.nvim",
