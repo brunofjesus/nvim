@@ -46,6 +46,7 @@ return {
           "gomod",
           "php",
           "just",
+          "helm",
         },
         incremental_selection = {
           enable = true,
