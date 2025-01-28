@@ -45,6 +45,7 @@ return {
           "templ",
           "gomod",
           "just",
+          "helm",
         },
         incremental_selection = {
           enable = true,
