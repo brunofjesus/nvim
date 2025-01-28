@@ -36,3 +36,6 @@ opt.splitbelow = true -- split horizontal window to the bottom
 
 -- turn off swapfile
 opt.swapfile = false
+
+-- show a single global status line
+opt.laststatus = 3
