@@ -107,8 +107,7 @@ return {
     { "gt",              function() Snacks.picker.lsp_type_definitions() end,                    desc = "Goto Type Definition" },
     { "<leader>o",       function() Snacks.picker.lsp_symbols() end,                             desc = "LSP Symbols" },
     -- Explorer
-    { "<C-n>", function () Snacks.picker.explorer() end, desc = "Explorer" },
-    { "<C-p>", function () Snacks.picker.explorer({ cwd = vim.fn.expand("%:p:h") }) end, desc = "Explorer (Current File)" },
+    { "<leader>e", function () Snacks.picker.explorer() end, desc = "Explorer" },
   },
   init = function()
     vim.api.nvim_create_autocmd("User", {
