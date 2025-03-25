@@ -65,36 +65,14 @@ Git decorations
 [nvim-lualine/lualine.nvim](https://github.com/nvim-lualine/lualine.nvim)
 Status line
 
-### nvim-cmp
-[hrsh7th/nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
+### blink-cmp
+[Saghen/blink.cmp](https://github.com/Saghen/blink.cmp)
 
 Completion engine for neovim.
-
-#### Completion sources
-
-- neovim/nvim-lspconfig
-- hrsh7th/cmp-buffer
-- hrsh7th/cmp-path
-- hrsh7th/cmp-nvim-lsp
-- hrsh7th/cmp-cmdline
-- hrsh7th/cmp-nvim-lua
-- L3MON4D3/LuaSnip
-- saadparwaiz1/cmp_luasnip
-- rafamadriz/friendly-snippets
 
 #### Keybindings
 
 - INSERT mode
-
-```help
-`<C-k>` - Select previous item
-`<C-j>` - Select next item
-`<C-b>` - Scroll docs ( -4 )
-`<C-f>` - Scroll docs ( +4 )
-`<C-Space>` - Complete
-`<C-e>` - Abort
-`<CR>` - Confirm
-```
 
 ### nvim-tree
 [nvim-tree/nvim-tree.lua](https://github.com/nvim-tree/nvim-tree.lua)
