@@ -45,7 +45,7 @@ return {
       custom_highlights = function(colors)
         return {
           LineNr = { fg = colors.subtext1 },
-          CursorLineNr = { fg = colors.peach, bg = colors.overlay0 },
+          -- CursorLineNr = { fg = colors.pink , bg = colors.overlay0 },
         }
       end,
       integrations = {
