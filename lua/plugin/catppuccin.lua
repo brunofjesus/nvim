@@ -49,9 +49,10 @@ return {
         }
       end,
       integrations = {
-        cmp = true,
+        cmp = false,
+        nvimtree = false,
+        blink_cmp = true,
         gitsigns = true,
-        nvimtree = true,
         treesitter = true,
         notify = false,
         dap = true,
