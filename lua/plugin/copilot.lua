@@ -16,6 +16,10 @@ return {
 --        dismiss = "<C-d>",
 --      },
     },
+    filetypes = {
+      markdown = true,
+      yaml = true,
+    },
+    copilot_model = "claude-3.7-sonnet",
   }
-
 }
