@@ -5,7 +5,40 @@ return {
   ---@type snacks.Config
   opts = {
     bigfile = { enabled = true },
-    dashboard = { enabled = false },
+    dashboard = {
+      enabled = true,
+      preset = {
+        pick = nil,
+        ---@type snacks.dashboard.Item[]
+        keys = {
+          { icon = " ", key = "f", desc = "Find File", action = ":lua Snacks.dashboard.pick('files')" },
+          { icon = " ", key = "n", desc = "New File", action = ":ene | startinsert" },
+          { icon = " ", key = "g", desc = "Find Text", action = ":lua Snacks.dashboard.pick('live_grep')" },
+          { icon = " ", key = "r", desc = "Recent Files", action = ":lua Snacks.dashboard.pick('oldfiles')" },
+          { icon = " ", key = "c", desc = "Config", action = ":lua Snacks.dashboard.pick('files', {cwd = vim.fn.stdpath('config')})" },
+          { icon = " ", key = "s", desc = "Restore Session", section = "session" },
+          { icon = "󰒲 ", key = "l", desc = "Lazy", action = ":Lazy", enabled = package.loaded.lazy ~= nil },
+          { icon = " ", key = "q", desc = "Quit", action = ":qa" },
+        },
+        header = [[
+███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗
+████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║
+██╔██╗ ██║█████╗  ██║   ██║██║   ██║██║██╔████╔██║
+██║╚██╗██║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║
+██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║
+╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝]]
+      },
+      sections = {
+        { section = 'header' },
+        {
+          section = "keys",
+          indent = 1,
+          padding = 1,
+        },
+        { section = 'recent_files', icon = ' ', title = 'Recent Files', indent = 3, padding = 2 },
+        { section = "startup" },
+      },
+    },
     indent = { enabled = true },
     input = { enabled = true },
     notifier = {
@@ -107,7 +140,7 @@ return {
     { "gt",              function() Snacks.picker.lsp_type_definitions() end,                    desc = "Goto Type Definition" },
     { "<leader>o",       function() Snacks.picker.lsp_symbols() end,                             desc = "LSP Symbols" },
     -- Explorer
-    { "<leader>e", function () Snacks.picker.explorer() end, desc = "Explorer" },
+    { "<leader>e",       function() Snacks.picker.explorer() end,                                desc = "Explorer" },
   },
   init = function()
     vim.api.nvim_create_autocmd("User", {

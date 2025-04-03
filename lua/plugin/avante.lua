@@ -13,6 +13,9 @@ return {
       temperature = 0,
       max_tokens = 8192,
     },
+    web_search_engine = {
+      provider = "tavily", -- tavily, serpapi, searchapi, google or kagi
+    }
   },
   -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
   build = "make",
@@ -23,7 +26,7 @@ return {
     "MunifTanjim/nui.nvim",
     --- The below dependencies are optional,
     "nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
-    "zbirenbaum/copilot.lua",    -- for providers='copilot'
+    "zbirenbaum/copilot.lua",      -- for providers='copilot'
     {
       -- support for image pasting
       "HakonHarnes/img-clip.nvim",
