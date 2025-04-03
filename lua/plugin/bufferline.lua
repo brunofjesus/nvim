@@ -3,6 +3,8 @@ return {
   dependencies = { "nvim-tree/nvim-web-devicons" },
   version = "*",
   init = function()
+    vim.keymap.set("n", "]b", "<cmd>BufferLineCycleNext<CR>", { desc = "Go to next buffer" });
+    vim.keymap.set("n", "[b", "<cmd>BufferLineCyclePrev<CR>", { desc = "Go to previous buffer" });
     vim.keymap.set("n", "L", "<cmd>BufferLineCycleNext<CR>", { desc = "Go to next buffer" });
     vim.keymap.set("n", "H", "<cmd>BufferLineCyclePrev<CR>", { desc = "Go to previous buffer" });
     vim.keymap.set("n", "<leader>tc", "<cmd>tabnew<CR>", { desc = "Create new tab" });
