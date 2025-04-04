@@ -134,10 +134,13 @@ return {
     { "<leader>uC",      function() Snacks.picker.colorschemes() end,                            desc = "Colorschemes" },
     { "<leader>qp",      function() Snacks.picker.projects() end,                                desc = "Projects" },
     -- LSP
-    { "gd",              function() Snacks.picker.lsp_definitions() end,                         desc = "Goto Definition" },
-    { "gr",              function() Snacks.picker.lsp_references() end,                          nowait = true,                        desc = "References" },
-    { "gi",              function() Snacks.picker.lsp_implementations() end,                     desc = "Goto Implementation" },
-    { "gt",              function() Snacks.picker.lsp_type_definitions() end,                    desc = "Goto Type Definition" },
+    { "gra",             vim.lsp.buf.code_action,                                                desc = "Code Action" },
+    { "grd",             function() Snacks.picker.lsp_definitions() end,                         desc = "Goto Definition" },
+    { "grn",             vim.lsp.buf.rename,                                                     desc = "Smart rename" },
+    { "grr",             function() Snacks.picker.lsp_references() end,                          nowait = true,                        desc = "References" },
+    { "gri",             function() Snacks.picker.lsp_implementations() end,                     desc = "Goto Implementation" },
+    { "grt",             function() Snacks.picker.lsp_type_definitions() end,                    desc = "Goto Type Definition" },
+    { "gO",              function() Snacks.picker.lsp_symbols() end,                             desc = "LSP Symbols" },
     { "<leader>o",       function() Snacks.picker.lsp_symbols() end,                             desc = "LSP Symbols" },
     -- Explorer
     { "<leader>e",       function() Snacks.picker.explorer() end,                                desc = "Explorer" },

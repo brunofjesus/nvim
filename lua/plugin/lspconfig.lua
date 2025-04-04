@@ -3,7 +3,7 @@ return {
   event = { "BufReadPre", "BufNewFile" },
   dependencies = {
     { "antosha417/nvim-lsp-file-operations", config = true }, -- TODO: check if this is necessary
-   'saghen/blink.cmp',
+    'saghen/blink.cmp',
   },
   config = function()
     local lspconfig = require("lspconfig")
@@ -19,17 +19,11 @@ return {
       opts.desc = "Format current file"
       keymap.set("n", "gf", vim.lsp.buf.format, opts) -- show lsp type definitions
 
-      opts.desc = "See available code actions"
-      keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts) -- see available code actions, in visual mode will apply to selection
-
-      opts.desc = "Smart rename"
-      keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts) -- smart rename
-
       opts.desc = "Go to previous diagnostic"
-      keymap.set("n", "[d", vim.diagnostic.goto_prev, opts) -- jump to previous diagnostic in buffer
+      keymap.set("n", "[d", function() vim.diagnostic.jump({ count = -1, float = true }); end, opts) -- jump to previous diagnostic in buffer
 
       opts.desc = "Go to next diagnostic"
-      keymap.set("n", "]d", vim.diagnostic.goto_next, opts) -- jump to next diagnostic in buffer
+      keymap.set("n", "]d", function() vim.diagnostic.jump({ count = 1, float = true }); end, opts) -- jump to next diagnostic in buffer
 
       opts.desc = "Show documentation for what is under cursor"
       keymap.set("n", "K", vim.lsp.buf.hover, opts) -- show documentation for what is under cursor
@@ -42,27 +36,27 @@ return {
     local capabilities = require("blink.cmp").get_lsp_capabilities()
 
     vim.diagnostic.config({
-        virtual_lines = true,
-        signs = {
-            text = {
-                [vim.diagnostic.severity.ERROR] = ' ',
-                [vim.diagnostic.severity.WARN] = ' ',
-                [vim.diagnostic.severity.HINT] = '󰠠 ',
-                [vim.diagnostic.severity.INFO] = ' ',
-            },
-            linehl = {
-                [vim.diagnostic.severity.ERROR] = 'ErrorMsg',
-                [vim.diagnostic.severity.WARN] = 'WarningMsg',
-                [vim.diagnostic.severity.HINT] = 'HintMsg',
-                [vim.diagnostic.severity.INFO] = 'InfoMsg',
-            },
-            numhl = {
-                [vim.diagnostic.severity.ERROR] = 'ErrorMsg',
-                [vim.diagnostic.severity.WARN] = 'WarningMsg',
-                [vim.diagnostic.severity.HINT] = 'HintMsg',
-                [vim.diagnostic.severity.INFO] = 'InfoMsg',
-            },
+      virtual_lines = true,
+      signs = {
+        text = {
+          [vim.diagnostic.severity.ERROR] = ' ',
+          [vim.diagnostic.severity.WARN] = ' ',
+          [vim.diagnostic.severity.HINT] = '󰠠 ',
+          [vim.diagnostic.severity.INFO] = ' ',
         },
+        linehl = {
+          [vim.diagnostic.severity.ERROR] = 'ErrorMsg',
+          [vim.diagnostic.severity.WARN] = 'WarningMsg',
+          [vim.diagnostic.severity.HINT] = 'HintMsg',
+          [vim.diagnostic.severity.INFO] = 'InfoMsg',
+        },
+        numhl = {
+          [vim.diagnostic.severity.ERROR] = 'ErrorMsg',
+          [vim.diagnostic.severity.WARN] = 'WarningMsg',
+          [vim.diagnostic.severity.HINT] = 'HintMsg',
+          [vim.diagnostic.severity.INFO] = 'InfoMsg',
+        },
+      },
     })
 
     -- configure html server
@@ -126,15 +120,39 @@ return {
       root_dir = lsputil.root_pattern("go.work", "go.mod", ".git"),
       settings = {
         gopls = {
-          completeUnimported = true,
-          usePlaceholders = false,
           gofumpt = true,
-          staticcheck = true,
+          codelenses = {
+            gc_details = false,
+            generate = true,
+            regenerate_cgo = true,
+            run_govulncheck = true,
+            test = true,
+            tidy = true,
+            upgrade_dependency = true,
+            vendor = true,
+          },
+          hints = {
+            assignVariableTypes = true,
+            compositeLiteralFields = true,
+            compositeLiteralTypes = true,
+            constantValues = true,
+            functionTypeParameters = true,
+            parameterNames = true,
+            rangeVariableTypes = true,
+          },
           analyses = {
+            nilness = true,
             unusedparams = true,
-          }
-        }
-      }
+            unusedwrite = true,
+            useany = true,
+          },
+          usePlaceholders = true,
+          completeUnimported = true,
+          staticcheck = true,
+          directoryFilters = { "-.git", "-.vscode", "-.idea", "-.vscode-test", "-node_modules" },
+          semanticTokens = true,
+        },
+      },
     })
 
     -- golang templ

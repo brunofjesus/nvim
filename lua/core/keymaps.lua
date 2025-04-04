@@ -20,3 +20,5 @@ keymap.set("n", "<C-Right>", "<cmd>vertical resize +2<cr>", { desc = "Increase W
 keymap.set("n", "<A-h>", "<cmd>wincmd t<CR>", { desc = "Go to far left split" })
 keymap.set("n", "<A-l>", "<cmd>wincmd b<CR>", { desc = "Go to far right split" })
 
+-- Git workflows
+keymap.set("n", "<leader>gw", "<cmd>GitHubWorkflows<CR>", { desc = "List GitHub workflows" })
