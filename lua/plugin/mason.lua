@@ -50,6 +50,9 @@ return {
         "gotests",
         "delve",
         "golangci-lint",
+        -- php
+        "phpcs",
+        "phpstan",
       },
     })
   end,
