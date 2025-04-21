@@ -173,5 +173,25 @@ return {
         Snacks.toggle.dim():map("<leader>uD")
       end,
     })
+
+    -- Disable animations when using BlinkCmp
+    -- https://github.com/Saghen/blink.cmp/issues/1338#issuecomment-2708402335
+    local ui_helpers = vim.api.nvim_create_augroup("UiHelpers", { clear = true })
+    -- disable buggy anims in completion windows
+    vim.api.nvim_create_autocmd("User", {
+      group = ui_helpers,
+      pattern = "BlinkCmpMenuOpen",
+      callback = function()
+        vim.g.snacks_animate = false
+      end,
+    })
+
+    vim.api.nvim_create_autocmd("User", {
+      group = ui_helpers,
+      pattern = "BlinkCmpMenuClose",
+      callback = function()
+        vim.g.snacks_animate = true
+      end,
+    })
   end,
 }
