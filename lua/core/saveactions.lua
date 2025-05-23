@@ -1,7 +1,7 @@
 vim.api.nvim_create_autocmd("BufWritePre", {
   pattern = "*.go",
   callback = function()
-    local params = vim.lsp.util.make_range_params()
+    local params = vim.lsp.util.make_range_params(0, "utf-16")
     params.context = {only = {"source.organizeImports"}}
     -- buf_request_sync defaults to a 1000ms timeout. Depending on your
     -- machine and codebase, you may want longer. Add an additional
@@ -9,6 +9,7 @@ vim.api.nvim_create_autocmd("BufWritePre", {
     -- twice for changes to be saved.
     -- E.g., vim.lsp.buf_request_sync(0, "textDocument/codeAction", params, 3000)
     local result = vim.lsp.buf_request_sync(0, "textDocument/codeAction", params)
+    vim.print(result)
     for cid, res in pairs(result or {}) do
       for _, r in pairs(res.result or {}) do
         if r.edit then
