@@ -9,7 +9,6 @@ vim.api.nvim_create_autocmd("BufWritePre", {
     -- twice for changes to be saved.
     -- E.g., vim.lsp.buf_request_sync(0, "textDocument/codeAction", params, 3000)
     local result = vim.lsp.buf_request_sync(0, "textDocument/codeAction", params)
-    vim.print(result)
     for cid, res in pairs(result or {}) do
       for _, r in pairs(res.result or {}) do
         if r.edit then
