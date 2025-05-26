@@ -3,6 +3,7 @@ return {
   event = "VeryLazy",
   lazy = false,
   version = false, -- set this if you want to always pull the latest change
+  -- commit = "f9aa754", -- agentic mode is buggy and can't be disabled!
   opts = {
     --provider = "claude"
     -- api_key_name = "cmd:bw get notes anthropic-api-key", -- the shell command must prefixed with `^cmd:(.*)`
@@ -34,7 +35,10 @@ return {
     selector = {
       provider = "snacks",
     },
-    disabled_tools = {}, ---@type string[]
+    disabled_tools = {
+      "replace-in-file",
+      "git-commit",
+    }, ---@type string[]
   },
   -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
   build = "make",
