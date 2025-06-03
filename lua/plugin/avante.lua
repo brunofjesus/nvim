@@ -9,10 +9,14 @@ return {
     -- api_key_name = {"bw","get","notes","anthropic-api-key"}, -- if it is a table of string, then default to command.
     mode = "legacy",
     provider = "copilot",
-    copilot = {
-      model = "claude-3.7-sonnet",
-      temperature = 0,
-      max_tokens = 8192,
+    providers = {
+      copilot = {
+        model = "claude-3.7-sonnet",
+        extra_request_body = {
+          temperature = 0,
+          max_tokens = 8192,
+        },
+      },
     },
     web_search_engine = {
       provider = "tavily", -- tavily, serpapi, searchapi, google or kagi
