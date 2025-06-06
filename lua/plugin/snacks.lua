@@ -108,9 +108,9 @@ return {
     { "<leader>fg",      function() Snacks.picker.git_files() end,                               desc = "Find Git Files" },
     { "<leader>fr",      function() Snacks.picker.recent() end,                                  desc = "Recent" },
     -- git (kind of redundant to the lazygit actions)
-    { "<leader>gc",      function() Snacks.picker.git_log() end,                                 desc = "Git Log" },
-    { "<leader>gs",      function() Snacks.picker.git_status() end,                              desc = "Git Status" },
-    { "<leader>gt",      function() Snacks.picker.git_branches() end,                            desc = "Git Branches" },
+    -- { "<leader>gc",      function() Snacks.picker.git_log() end,                                 desc = "Git Log" },
+    -- { "<leader>gs",      function() Snacks.picker.git_status() end,                              desc = "Git Status" },
+    -- { "<leader>gt",      function() Snacks.picker.git_branches() end,                            desc = "Git Branches" },
     -- Grep
     { "<leader>sb",      function() Snacks.picker.lines() end,                                   desc = "Buffer Lines" },
     { "<leader>sB",      function() Snacks.picker.grep_buffers() end,                            desc = "Grep Open Buffers" },

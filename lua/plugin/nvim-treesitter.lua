@@ -47,6 +47,7 @@ return {
           "php",
           "just",
           "helm",
+          "proto",
         },
         incremental_selection = {
           enable = true,
