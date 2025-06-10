@@ -46,6 +46,7 @@ return {
         return {
           LineNr = { fg = colors.subtext1 },
           -- CursorLineNr = { fg = colors.pink , bg = colors.overlay0 },
+          DapStopped =  { fg = colors.crust, bg = "#CD7B91" },
         }
       end,
       integrations = {
