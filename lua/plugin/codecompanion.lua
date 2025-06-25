@@ -19,7 +19,7 @@ return {
           return require("codecompanion.adapters").extend("copilot", {
             schema = {
               model = {
-                default = "claude-3.7-sonnet",
+                default = "claude-sonnet-4",
               }
             }
           })
@@ -27,9 +27,9 @@ return {
       },
       display = {
         chat = {
-          show_settings = true,
+          show_settings = false,
           window = {
-            width = 0.30
+            --width = 0.30
           }
         }
       }
