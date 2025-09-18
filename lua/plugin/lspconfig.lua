@@ -116,7 +116,6 @@ return {
       capabilities = capabilities,
       cmd = { "gopls" },
       filetypes = { "go", "gomod", "gowork", "gotmpl", "templ" },
-      root_dir = lsputil.root_pattern("go.work", "go.mod", ".git"),
       settings = {
         gopls = {
           gofumpt = true,
