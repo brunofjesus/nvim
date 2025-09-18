@@ -6,8 +6,6 @@ return {
     'saghen/blink.cmp',
   },
   config = function()
-    local lsputil = require("lspconfig/util")
-
     local keymap = vim.keymap
 
     local opts = { noremap = true, silent = true }
@@ -167,7 +165,7 @@ return {
     })
 
     -- PHP
-    lspconfig["intelephense"].setup({
+    vim.lsp.config["intelephense"].setup({
       on_attach = on_attach,
       capabilities = capabilities,
     })
