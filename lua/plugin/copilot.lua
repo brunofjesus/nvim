@@ -20,6 +20,6 @@ return {
       markdown = true,
       yaml = true,
     },
-    copilot_model = "claude-3.7-sonnet",
+    copilot_model = "claude-sonnet-4",
   }
 }
