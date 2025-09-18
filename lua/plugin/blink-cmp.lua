@@ -29,8 +29,9 @@ return {
       ['<CR>'] = { 'accept', 'fallback' },
       ['<C-a>'] = { 'select_and_accept' },
 
-      ['<Tab>'] = { 'snippet_forward', 'fallback' },
-      ['<S-Tab>'] = { 'snippet_backward', 'fallback' },
+      --['<Tab>'] = { 'snippet_forward', 'fallback' },
+      --['<S-Tab>'] = { 'snippet_backward', 'fallback' },
+      ['<Tab>'] = { 'accept', 'fallback' },
 
       ['<Up>'] = { 'select_prev', 'fallback' },
       ['<Down>'] = { 'select_next', 'fallback' },
