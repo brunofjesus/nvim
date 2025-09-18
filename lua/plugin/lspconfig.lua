@@ -6,7 +6,6 @@ return {
     'saghen/blink.cmp',
   },
   config = function()
-    local lspconfig = require("lspconfig")
     local lsputil = require("lspconfig/util")
 
     local keymap = vim.keymap
@@ -60,39 +59,39 @@ return {
     })
 
     -- configure html server
-    lspconfig["html"].setup({
+    vim.lsp.config("html", {
       capabilities = capabilities,
       on_attach = on_attach,
     })
 
     -- configure typescript server with plugin
-    lspconfig["ts_ls"].setup({
+    vim.lsp.config("ts_ls", {
       capabilities = capabilities,
       on_attach = on_attach,
     })
 
     -- configure css server
-    lspconfig["cssls"].setup({
+    vim.lsp.config("cssls", {
       capabilities = capabilities,
       on_attach = on_attach,
     })
 
     -- configure graphql language server
-    lspconfig["graphql"].setup({
+    vim.lsp.config("graphql", {
       capabilities = capabilities,
       on_attach = on_attach,
       filetypes = { "graphql", "gql", "svelte", "typescriptreact", "javascriptreact" },
     })
 
     -- configure emmet language server
-    lspconfig["emmet_ls"].setup({
+    vim.lsp.config("emmet_ls", {
       capabilities = capabilities,
       on_attach = on_attach,
       filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "svelte" },
     })
 
     -- configure lua server (with special settings)
-    lspconfig["lua_ls"].setup({
+    vim.lsp.config("lua_ls", {
       capabilities = capabilities,
       on_attach = on_attach,
       settings = { -- custom settings for lua
@@ -112,7 +111,7 @@ return {
       },
     })
     -- configure golang
-    lspconfig["gopls"].setup({
+    vim.lsp.config("gopls", {
       on_attach = on_attach,
       capabilities = capabilities,
       cmd = { "gopls" },
@@ -156,7 +155,7 @@ return {
     })
 
     -- golang templ
-    lspconfig["templ"].setup({
+    vim.lsp.config("templ", {
       on_attach = on_attach,
       flags = {
         debounce_text_changes = 150,
