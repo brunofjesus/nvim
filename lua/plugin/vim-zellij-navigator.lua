@@ -3,8 +3,10 @@
 --  command = "silent !zellij action switch-mode normal"
 --})
 
+local in_zellij = vim.env.ZELLIJ ~= nil
 return {
   "swaits/zellij-nav.nvim",
+  enabled = in_zellij;
   lazy = true,
   event = "VeryLazy",
   keys = {
@@ -15,5 +17,4 @@ return {
   },
   opts = {},
 }
-
 

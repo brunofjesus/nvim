@@ -6,10 +6,10 @@ return {
     -- Function to call when switching to dark theme
     on_dark = function()
       vim.opt.background = "dark"
-      vim.cmd("colorscheme catppuccin-mocha")
+      vim.cmd("colorscheme catppuccin-frappe")
       vim.cmd("Reactive disable_all")
-      vim.cmd("Reactive enable catppuccin-mocha-cursor")
-      vim.cmd("Reactive enable catppuccin-mocha-cursorline")
+      vim.cmd("Reactive enable catppuccin-frappe-cursor")
+      vim.cmd("Reactive enable catppuccin-frappe-cursorline")
     end,
     -- Function to call when switching to light theme
     on_light = function()

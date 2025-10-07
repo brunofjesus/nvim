@@ -5,10 +5,10 @@ return {
 	priority = 1000,
 	config = function()
 		require("catppuccin").setup({
-			flavour = "latte", -- latte, frappe, macchiato, mocha
+			flavour = "frappe", -- latte, frappe, macchiato, mocha
 			background = { -- :h background
 				light = "latte",
-				dark = "mocha",
+				dark = "frappe",
 			},
 			transparent_background = false, -- disables setting the background color.
 			show_end_of_buffer = false, -- shows the '~' characters after the end of buffers
@@ -117,8 +117,8 @@ return {
 
 		require("reactive").setup({
 			load = {
-				"catppuccin-mocha-cursor",
-				"catppuccin-mocha-cursorline",
+				"catppuccin-frappe-cursor",
+				"catppuccin-frappe-cursorline",
 				"catppuccin-latte-cursor",
 				"catppuccin-latte-cursorline",
 			},
@@ -126,7 +126,7 @@ return {
 
     -- Will be loaded by osc11
     vim.cmd("Reactive disable_all")
-    local in_zellij = vim.env.ZELLIJ == "0"
+    local in_zellij = vim.env.ZELLIJ ~= nil
     if in_zellij then
       vim.cmd("Reactive enable catppuccin-latte-cursor")
       vim.cmd("Reactive enable catppuccin-latte-cursorline")
