@@ -123,16 +123,15 @@ return {
 				"catppuccin-latte-cursorline",
 			},
 		})
+ 		-- setup must be called before loading
+		vim.cmd.colorscheme("catppuccin")
 
     -- Will be loaded by osc11
     vim.cmd("Reactive disable_all")
     local in_zellij = vim.env.ZELLIJ ~= nil
     if in_zellij then
-      vim.cmd("Reactive enable catppuccin-latte-cursor")
-      vim.cmd("Reactive enable catppuccin-latte-cursorline")
+      vim.cmd("DisableDarkMode")
     end
 
-		-- setup must be called before loading
-		vim.cmd.colorscheme("catppuccin")
 	end,
 }
