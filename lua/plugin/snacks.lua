@@ -133,6 +133,7 @@ return {
     { "<leader>sx",      function() Snacks.picker.smart() end,                                   desc = "Smart Pick" },
     { "<leader>uC",      function() Snacks.picker.colorschemes() end,                            desc = "Colorschemes" },
     { "<leader>qp",      function() Snacks.picker.projects() end,                                desc = "Projects" },
+    { "<leader>ub",      function() vim.cmd("ToggleDarkMode") end,                               desc = "Dark Mode" },
     -- LSP
     { "gra",             vim.lsp.buf.code_action,                                                desc = "Code Action" },
     { "grd",             function() Snacks.picker.lsp_definitions() end,                         desc = "Goto Definition" },
@@ -167,7 +168,7 @@ return {
         Snacks.toggle.option("conceallevel", { off = 0, on = vim.o.conceallevel > 0 and vim.o.conceallevel or 2 }):map(
           "<leader>uc")
         Snacks.toggle.treesitter():map("<leader>uT")
-        Snacks.toggle.option("background", { off = "light", on = "dark", name = "Dark Background" }):map("<leader>ub")
+        -- Snacks.toggle.option("background", { off = "light", on = "dark", name = "Dark Background" }):map("<leader>ub")
         Snacks.toggle.inlay_hints():map("<leader>uh")
         Snacks.toggle.indent():map("<leader>ug")
         Snacks.toggle.dim():map("<leader>uD")
