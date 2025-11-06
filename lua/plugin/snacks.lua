@@ -54,8 +54,8 @@ return {
         wo = { wrap = true } -- Wrap notifications
       }
     },
-    picker = {},
-    terminal = {},
+    picker = { enabled = true },
+    terminal = { enabled = true },
   },
   keys = {
     { "<leader>z",       function() Snacks.zen() end,                                            desc = "Toggle Zen Mode" },
