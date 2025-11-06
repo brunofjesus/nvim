@@ -2,7 +2,10 @@ return {
   "neovim/nvim-lspconfig",
   event = { "BufReadPre", "BufNewFile" },
   dependencies = {
-    { "antosha417/nvim-lsp-file-operations", config = true }, -- TODO: check if this is necessary
+    { "antosha417/nvim-lsp-file-operations", 
+      dependencies = { "nvim-lua/plenary.nvim" },
+      config = true 
+    }, -- TODO: check if this is necessary
     'saghen/blink.cmp',
   },
   config = function()
