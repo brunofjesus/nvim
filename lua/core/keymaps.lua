@@ -28,8 +28,7 @@ keymap.set("n", "<leader>gw", "<cmd>GitHubWorkflows<CR>", { desc = "List GitHub 
 
 
 local in_zellij = vim.env.ZELLIJ ~= nil
-local in_tmux = vim.env.TMUX ~= nil
-if not (in_zellij or in_tmux) then
+if not in_zellij then
   keymap.set("n", "<C-h>", ":wincmd h<CR>", { desc = "Go to left split" })
   keymap.set("n", "<C-j>", ":wincmd j<CR>", { desc = "Go to down split" })
   keymap.set("n", "<C-k>", ":wincmd k<CR>", { desc = "Go to up split" })

@@ -128,10 +128,5 @@ return {
 
     -- Will be loaded by osc11
     vim.cmd("Reactive disable_all")
-    local in_zellij = vim.env.ZELLIJ ~= nil
-    if in_zellij then
-      vim.cmd("DisableDarkMode")
-    end
-
-	end,
+ 	end,
 }
