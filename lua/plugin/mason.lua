@@ -48,6 +48,8 @@ return {
         "gotests",
         "delve",
         "golangci-lint",
+        -- diagrams
+        "mmdc",
       },
     })
   end,
