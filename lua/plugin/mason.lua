@@ -48,6 +48,7 @@ return {
         "gotests",
         "delve",
         "golangci-lint",
+        "templ",
         -- diagrams
         "mmdc",
       },
