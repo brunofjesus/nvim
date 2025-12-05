@@ -27,7 +27,6 @@ keymap.set("t", "<C-\\><C-\\>", "<C-\\><C-n>", { desc = "Drop to normal mode"})
 keymap.set("n", "<leader>gw", "<cmd>GitHubWorkflows<CR>", { desc = "List GitHub workflows" })
 
 
-local in_zellij = vim.env.ZELLIJ ~= nil
 if not in_zellij then
   keymap.set("n", "<C-h>", ":wincmd h<CR>", { desc = "Go to left split" })
   keymap.set("n", "<C-j>", ":wincmd j<CR>", { desc = "Go to down split" })

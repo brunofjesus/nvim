@@ -56,6 +56,15 @@ return {
     },
     picker = { enabled = true },
     terminal = { enabled = true },
+    image = {
+      enabled = true,
+      doc = {
+        inline = false,
+        float = false,
+        max_width = 120,
+        max_height = 60,
+      },
+    },
   },
   keys = {
     { "<leader>z",       function() Snacks.zen() end,                                            desc = "Toggle Zen Mode" },

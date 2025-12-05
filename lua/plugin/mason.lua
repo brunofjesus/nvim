@@ -50,7 +50,7 @@ return {
         "golangci-lint",
         "templ",
         -- diagrams
-        "mmdc",
+        -- "mmdc",
       },
     })
   end,
