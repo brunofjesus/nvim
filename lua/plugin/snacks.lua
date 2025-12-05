@@ -56,6 +56,15 @@ return {
     },
     picker = { enabled = true },
     terminal = { enabled = true },
+    image = {
+      enabled = true,
+      doc = {
+        inline = false,
+        float = false,
+        max_width = 120,
+        max_height = 60,
+      },
+    },
   },
   keys = {
     { "<leader>z",       function() Snacks.zen() end,                                            desc = "Toggle Zen Mode" },
@@ -145,6 +154,8 @@ return {
     { "<leader>o",       function() Snacks.picker.lsp_symbols() end,                             desc = "LSP Symbols" },
     -- Explorer
     { "<leader>e",       function() Snacks.picker.explorer() end,                                desc = "Explorer" },
+    -- Image
+    { "K",       function() Snacks.image.hover() end, desc = "Show image under cursor" },
   },
   init = function()
     vim.api.nvim_create_autocmd("User", {

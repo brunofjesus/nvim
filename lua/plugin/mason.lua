@@ -55,7 +55,7 @@ return {
         "phpcs",
         "phpstan",
         -- diagrams
-        "mmdc",
+        -- "mmdc",
       },
     })
   end,

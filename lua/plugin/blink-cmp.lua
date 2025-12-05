@@ -27,7 +27,7 @@ return {
       ['<C-space>'] = { 'show', 'show_documentation', 'hide_documentation' },
       ['<C-e>'] = { 'hide', 'fallback' },
       ['<CR>'] = { 'accept', 'fallback' },
-      ['<C-a>'] = { 'select_and_accept' },
+      ['<C-y>'] = { 'select_and_accept' },
 
       --['<Tab>'] = { 'snippet_forward', 'fallback' },
       --['<S-Tab>'] = { 'snippet_backward', 'fallback' },
