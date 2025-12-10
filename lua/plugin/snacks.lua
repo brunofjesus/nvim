@@ -155,7 +155,8 @@ return {
     -- Explorer
     { "<leader>e",       function() Snacks.picker.explorer() end,                                desc = "Explorer" },
     -- Image
-    { "K",       function() Snacks.image.hover() end, desc = "Show image under cursor" },
+    { "K",               function() Snacks.image.hover() end,                                    desc = "Show image under cursor" },
+    { "q",               function() Snacks.image.doc.hover_close() end,                          desc = "Close image hover" },
   },
   init = function()
     vim.api.nvim_create_autocmd("User", {
@@ -203,6 +204,14 @@ return {
       pattern = "BlinkCmpMenuClose",
       callback = function()
         vim.g.snacks_animate = true
+      end,
+    })
+
+    -- Close the hover when cursor moves
+    vim.api.nvim_create_autocmd({ "CursorMoved" }, {
+      group = vim.api.nvim_create_augroup("customize_snack_image", { clear = true }),
+      callback = function()
+        Snacks.image.doc.hover_close()
       end,
     })
   end,
