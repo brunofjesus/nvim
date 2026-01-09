@@ -2,15 +2,13 @@ return {
   "neovim/nvim-lspconfig",
   event = { "BufReadPre", "BufNewFile" },
   dependencies = {
-    { "antosha417/nvim-lsp-file-operations", 
+    { "antosha417/nvim-lsp-file-operations",
       dependencies = { "nvim-lua/plenary.nvim" },
-      config = true 
+      config = true
     }, -- TODO: check if this is necessary
     'saghen/blink.cmp',
   },
   config = function()
-    local lsputil = require("lspconfig/util")
-
     local keymap = vim.keymap
 
     local opts = { noremap = true, silent = true }
