@@ -2,9 +2,9 @@ return {
   "neovim/nvim-lspconfig",
   event = { "BufReadPre", "BufNewFile" },
   dependencies = {
-    { "antosha417/nvim-lsp-file-operations", 
+    { "antosha417/nvim-lsp-file-operations",
       dependencies = { "nvim-lua/plenary.nvim" },
-      config = true 
+      config = true
     }, -- TODO: check if this is necessary
     'saghen/blink.cmp',
   },
@@ -34,9 +34,8 @@ return {
 
     -- used to enable autocompletion (assign to every lsp server config)
     local capabilities = require("blink.cmp").get_lsp_capabilities()
-
     vim.diagnostic.config({
-      virtual_lines = true,
+      virtual_lines = { current_line = true },
       signs = {
         text = {
           [vim.diagnostic.severity.ERROR] = ' ',
