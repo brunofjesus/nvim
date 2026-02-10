@@ -21,7 +21,7 @@ opt.smartcase = true -- if you include mixed case in your search, assumes you wa
 opt.cursorline = true -- highlight the current cursor line
 
 -- appearance
-opt.background = "dark"
+-- opt.background = "dark"
 opt.signcolumn = "yes" -- show sign column so that text doesn't shift
 
 -- backspace
@@ -36,3 +36,6 @@ opt.splitbelow = true -- split horizontal window to the bottom
 
 -- turn off swapfile
 opt.swapfile = false
+
+-- show a single global status line
+opt.laststatus = 3

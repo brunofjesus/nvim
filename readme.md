@@ -1,5 +1,8 @@
 # NeoVim Configuration
 
+## Warning
+I'm trying new key combinations, so this might be outdated `<leader>sk` will open all keybindings.
+
 This NeoVim configuration is mostly used for GoLang coding.
 
 ## Keybindings
@@ -8,13 +11,38 @@ This NeoVim configuration is mostly used for GoLang coding.
 
 ```help
 `<Esc>` - Clear search highlights
-`<leader>sv` - Split window vertically
-`<leader>sh` - Split window horizontally
-`<leader>se` - Make splits equal size
-`<leader>sd` - Close current buffer
-`<leader>sx` - Close current split
 `<tab>` - Go to next buffer
 `<S-tab>` - Go to previous buffer
+`<leader>wv` - Split window vertically
+`<leader>wh` - Split window horizontally
+`<leader>we` - Make splits equal size
+`<leader>wd` - Delete buffer
+`<leader>wo` - Delete other buffers
+`<leader>wa` - Delete all buffers
+`<leader>wx` - Close current split
+`<leader>z` - Toggle zen mode
+`<leader>Z` - Toggle zen zoom mode
+`<leader>.` - Toggle scratch buffer
+`<leader>S` - Select scratch buffer
+`<leader>n` - Notification history
+`<leader>un` - Dismiss all notifications`
+`<leader>cR` - Rename file 
+`<leader>gB` - Git browse
+`<leader>gb` - Git blame line
+`<leader>gf` - Lazygit current file history`
+`<leader>gg` - Lazygit`
+`<leader>gl` - Lagygit log`
+`<C-/>` - Toggle Terminal
+`<leader>us` - Toggle spelling
+`<leader>uw` - Toggle wrap
+`<leader>ul` - Toggle line number
+`<leader>uL` - Toggle relative number
+`<leader>uc` - Toggle conceal
+`<leader>uT` - Toggle Treesitter highlight
+`<leader>ub` - Toggle dark theme
+`<leader>uh` - Toggle inlay hints
+`<leader>ug` - Toggle indent
+`<leader>uD` - Toggle dim
 ```
 
 ## Plugins
@@ -29,106 +57,22 @@ Shows buffers as "tabs" on the top portion of the editor
 [catppuccin/nvim](https://github.com/catppuccin/nvim)
 Applies the Catppuccin theme to NeoVim. Using the `mocha` flavor.
 
-### Comment
-[numToStr/Comment.nvim](https://github.com/numToStr/Comment.nvim)
-Code commenting keybindings.
-
-#### Keybindings
-
-- NORMAL mode
-
-```help
-`gcc` - Toggles the current line using linewise comment
-`gbc` - Toggles the current line using blockwise comment
-`[count]gcc` - Toggles the number of line given as a prefix-count using linewise
-`[count]gbc` - Toggles the number of line given as a prefix-count using blockwise
-`gc[count]{motion}` - (Op-pending) Toggles the region using linewise comment
-`gb[count]{motion}` - (Op-pending) Toggles the region using blockwise comment
-`gco` - Insert comment to the next line and enters INSERT mode
-`gcO` - Insert comment to the previous line and enters INSERT mode
-`gcA` - Insert comment to end of the current line and enters INSERT mode
-```
-
-- VISUAL mode
-
-```help
-`gc` - Toggles the region using linewise comment
-`gb` - Toggles the region using blockwise comment
-```
-
-### Dressing
-[stevearc/dressing.nvim](https://github.com/stevearc/dressing.nvim)
-UI improvements for selection and input dialogs.
-
 ### GitSigns
 [lewis6991/gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)
 Git decorations
-
-
-#### Keybindings
-
-- NORMAL mode
-
-```help
-`]c` - Go to next hunk
-`[c` - Go to previous hunk
-`<leader>hs` - Git stage hunk
-`<leader>hr` - Git reset hunk
-`<leader>hS` - Git stage buffer
-`<leader>hu` - Git undo stage hunk
-`<leader>hR` - Git reset buffer
-`<leader>hp` - Git preview hunk
-`<leader>hb` - Git blame line
-`<leader>hd` - Git diff
-`<leader>hD` - Git diff HEAD
-`<leader>td` - Toggle deleted
-`<leader>tb` - Toggle current line blame
-```
-
-- VISUAL mode
-```help
-`<leader>hs` - Git stage hunk
-`<leader>hr` - Git reset hunk
-```
-
-### Indent-blankline
-[lukas-reineke/indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim)
-Adds indentation guides.
 
 ### Lualine
 [nvim-lualine/lualine.nvim](https://github.com/nvim-lualine/lualine.nvim)
 Status line
 
-### nvim-cmp
-[hrsh7th/nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
+### blink-cmp
+[Saghen/blink.cmp](https://github.com/Saghen/blink.cmp)
 
 Completion engine for neovim.
-
-#### Completion sources
-
-- neovim/nvim-lspconfig
-- hrsh7th/cmp-buffer
-- hrsh7th/cmp-path
-- hrsh7th/cmp-nvim-lsp
-- hrsh7th/cmp-cmdline
-- hrsh7th/cmp-nvim-lua
-- L3MON4D3/LuaSnip
-- saadparwaiz1/cmp_luasnip
-- rafamadriz/friendly-snippets
 
 #### Keybindings
 
 - INSERT mode
-
-```help
-`<C-k>` - Select previous item
-`<C-j>` - Select next item
-`<C-b>` - Scroll docs ( -4 )
-`<C-f>` - Scroll docs ( +4 )
-`<C-Space>` - Complete
-`<C-e>` - Abort
-`<CR>` - Confirm
-```
 
 ### nvim-tree
 [nvim-tree/nvim-tree.lua](https://github.com/nvim-tree/nvim-tree.lua)
@@ -169,59 +113,6 @@ Treesiter integration for Neovim
  - go
  - templ
 
-### outline.nvim
-[hedyhli/outline.nvim](https://github.com/hedyhli/outline.nvim)
-Outline explorer sidebar
-
-#### Keybindings
-
-- NORMAL mode
-
-```help
-`<leader>o` - Toggle outline
-```
-
-### telescope.nvim
-[nvim-telescope/telescope.nvim](https://github.com/nvim-telescope/telescope.nvim/tree/0.1.x)
-
-Fuzzy finder.
-
-Requires `fzf` and `ripgrep`.
-
-#### Keybindings
-
-- NORMAL mode
-
-```help
-`<leader>ff` - Find files in current working directory
-`<leader>fr` - Find recent files
-`<leader>fs` - Find string in current working directory
-`<leader>fc` - Find string under cursor in the current working directory
-`<leader>fb` - Find buffers
-`<leader>fgm` - Find git commits
-`<leader>fgs` - Find git status
-```
-
-- On Fuzzy Finder
-```help
-`<C-k>` - Move to previous result (up)
-`<C-j>` - Move to next result (down)
-`<C-q>` - Send to qflist
-```
-
-### vim-maximizer
-[szw/vim-maximizer](https://github.com/szw/vim-maximizer)
-Maximizes and restores the current window in Vim.
-
-#### Keybindings
-
-- NORMAL mode
-
-```help
-`<leader>sm` - Toggle maximizer
-`<F3>` - Toggle maximizer
-```
-
 ### vim-tmux-navigator
 [christoomey/vim-tmux-navigator](https://github.com/christoomey/vim-tmux-navigator)
 Provides mappings which allow moving between vim panes and tmux splits seamlessly.
@@ -254,7 +145,7 @@ Official Neovim LSP Config
 
 #### LSP configurations
 - html
-- tsserver
+- ts_ls
 - cssls
 - graphql
 - emmet_ls
@@ -290,7 +181,7 @@ Package manager for neovim
 Installs the following tools:
 
 - LSP
-   - tsserver
+   - ts_ls
    - html
    - cssls
    - lua_ls
@@ -342,3 +233,31 @@ Extension to `nvim-dap` providing compatibility with the `go debugger` (`delve`)
 `<leader>dgl` - Debug Last Test
 ```
 
+### avante
+[yetone/avante.nvim](https://github.com/yetone/avante.nvim)
+Cursor AI like plugin for neovim
+
+#### Keybindings
+
+- NORMAL mode
+
+```help
+<leader>aa	Show Sidebar
+<leader>ar	Refresh Sidebar
+<leader>af	Switch Sidebar Focus
+<leader>ae	Edit Selected Blocks
+co	Choose Ours
+ct	Choose Theirs
+ca	Choose All Theirs
+c0	Choose None
+cb	Choose Both
+cc	Choose Cursor
+]x	Move To Previous Conflict
+[x	Move To Next Conflict
+[[	Jump To Previous Codeblocks (Results Window)
+]]	Jump To Next Codeblocks (Results Windows)
+```
+
+### snacks.nvim
+[folke/snacks.nvim](https://github.com/folke/snacks.nvim)
+A collection of small QoL plugins for Neovim.
