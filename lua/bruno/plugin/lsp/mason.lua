@@ -48,6 +48,13 @@ return {
         "golines",
         "gotests",
         "delve",
+        "golangci-lint",
+        "templ",
+        -- diagrams
+        "mmdc",
+        -- python
+        "basedpyright",
+        "ruff",
       },
     })
   end,

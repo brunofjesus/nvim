@@ -156,10 +156,22 @@ return {
     })
 
     -- python
-    lspconfig["pyright"].setup({
+    vim.lsp.config("basedpyright", {
       on_attach = on_attach,
       capabilities = capabilities,
-      filetypes = {"python", "Tiltfile"},
+      filetypes = { "python" },
+      settings = {
+        basedpyright = {
+          typeCheckingMode = "standard",
+        },
+      },
+    })
+
+    -- ruff for python linting and formatting
+    vim.lsp.config("ruff", {
+      on_attach = on_attach,
+      capabilities = capabilities,
+      filetypes = { "python" },
     })
   end,
 }
