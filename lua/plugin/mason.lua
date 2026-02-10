@@ -31,7 +31,8 @@ return {
         "lua_ls",
         "graphql",
         "emmet_ls",
-        "pyright",
+        "basedpyright",
+        "ruff",
       },
       -- auto-install configured servers (with lspconfig)
       automatic_installation = true, -- not the same as ensure_installed
@@ -52,9 +53,6 @@ return {
         "templ",
         -- diagrams
         "mmdc",
-        -- python
-        "basedpyright",
-        "ruff",
       },
     })
   end,
