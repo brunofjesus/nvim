@@ -156,7 +156,7 @@ return {
     { "<leader>e",       function() Snacks.picker.explorer() end,                                desc = "Explorer" },
     -- Image
     { "K",               function() Snacks.image.hover() end,                                    desc = "Show image under cursor" },
-    { "q",               function() Snacks.image.doc.hover_close() end,                          desc = "Close image hover" },
+    { "<Esc>",               function() Snacks.image.doc.hover_close() end,                          desc = "Close image hover" },
   },
   init = function()
     vim.api.nvim_create_autocmd("User", {
