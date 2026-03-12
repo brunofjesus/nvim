@@ -15,7 +15,17 @@ return {
     options = {
       mode = "buffer",
       separator_style = "thin",
-      diagnostics = "nvim_lsp"
+      diagnostics = "nvim_lsp",
+      custom_filter = function(buf, buf_nums)
+        if vim.bo[buf].filetype == "help" then
+          return false -- Hide help buffers
+        elseif vim.startswith(vim.fn.bufname(buf), "term://") then
+          return false -- Hide term and opencode buffers
+        end
+
+        return true
+      end
+
     }
   },
 }
