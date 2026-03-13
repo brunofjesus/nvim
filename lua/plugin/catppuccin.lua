@@ -124,7 +124,7 @@ return {
 			},
 		})
  		-- setup must be called before loading
-		vim.cmd.colorscheme("catppuccin")
+		vim.cmd.colorscheme("catppuccin-frappe")
 
     -- Will be loaded by osc11
     vim.cmd("Reactive disable_all")
