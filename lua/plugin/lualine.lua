@@ -7,7 +7,7 @@ return {
 
     lualine.setup({
       options = {
-        theme = "catppuccin",
+        theme = "catppuccin-nvim",
         section_separators = { left = '', right = '' }, -- Rounded separators
         component_separators = { left = '', right = '' }, -- Smaller rounded separators
       },
