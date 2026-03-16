@@ -87,7 +87,7 @@ return {
 				}
 			end,
 			integrations = {
-				cmp = false,
+				cmp = false, -- switched to blink_cmp
 				nvimtree = false,
 				blink_cmp = true,
 				gitsigns = true,
@@ -95,7 +95,9 @@ return {
 				notify = false,
 				dap = true,
 				dap_ui = true,
-				snacks = true,
+				snacks = {
+          enabled = true,
+        },
 				render_markdown = true,
 				mini = {
 					enabled = true,
@@ -110,6 +112,9 @@ return {
 					scope_color = "lavender", -- catppuccin color (eg. `lavender`) Default: text
 					colored_indent_levels = false,
 				},
+        diffview = true,
+        mason = true,
+        which_key = true,
 				-- For more plugins integrations (https://github.com/catppuccin/nvim#integrations)
 			},
 		})
@@ -124,7 +129,7 @@ return {
 			},
 		})
  		-- setup must be called before loading
-		vim.cmd.colorscheme("catppuccin")
+		vim.cmd.colorscheme("catppuccin-nvim")
 
     -- Will be loaded by osc11
     vim.cmd("Reactive disable_all")
