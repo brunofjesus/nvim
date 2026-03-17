@@ -156,7 +156,8 @@ return {
     { "<leader>e",       function() Snacks.picker.explorer() end,                                desc = "Explorer" },
     -- Image
     { "K",               function() Snacks.image.hover() end,                                    desc = "Show image under cursor" },
-    { "<Esc>",               function() Snacks.image.doc.hover_close() end,                          desc = "Close image hover" },
+    --conflicts with keymaps.lua keybinding, rely on cursor movement to close
+    --{ "<Esc>",           function() Snacks.image.doc.hover_close() end,                          desc = "Close image hover" },
   },
   init = function()
     vim.api.nvim_create_autocmd("User", {
