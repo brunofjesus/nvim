@@ -3,10 +3,10 @@
 --  command = "silent !zellij action switch-mode normal"
 --})
 
-local in_zellij = vim.env.ZELLIJ ~= nil
+local env = require("utils.env")
 return {
   "swaits/zellij-nav.nvim",
-  enabled = in_zellij;
+  enabled = env.should_load.zellij_navigator;
   lazy = true,
   event = "VeryLazy",
   keys = {
