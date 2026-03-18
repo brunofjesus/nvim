@@ -1,7 +1,7 @@
-local in_zellij = vim.env.ZELLIJ == "0"
+local env = require("utils.env")
 return {
   "afonsofrancof/OSC11.nvim",
-  enabled = not in_zellij;
+  enabled = env.should_load.osc11;
   opts = {
     -- Function to call when switching to dark theme
     on_dark = function()

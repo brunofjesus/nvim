@@ -26,6 +26,9 @@ keymap.set("t", "<C-\\><C-\\>", "<C-\\><C-n>", { desc = "Drop to normal mode"})
 -- Git workflows
 keymap.set("n", "<leader>gw", "<cmd>GitHubWorkflows<CR>", { desc = "List GitHub workflows" })
 
+-- Increment/decrement numbers
+vim.keymap.set("n", "+", "<C-a>", { desc = "Increment", noremap = true })
+vim.keymap.set("n", "-", "<C-x>", { desc = "Decrement", noremap = true })
 
 if not in_zellij then
   keymap.set("n", "<C-h>", ":wincmd h<CR>", { desc = "Go to left split" })

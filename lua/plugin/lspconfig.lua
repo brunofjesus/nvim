@@ -103,7 +103,7 @@ return {
           workspace = {
             -- make language server aware of runtime files
             library = {
-              [vim.fn.expand("$VIMRUNTIME/lua")] = true,
+              [require("utils.env").lsp.vimruntime_lua] = true,
               [vim.fn.stdpath("config") .. "/lua"] = true,
             },
           },
