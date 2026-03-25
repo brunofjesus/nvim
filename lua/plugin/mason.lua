@@ -33,7 +33,6 @@ local ensure_installed = {
   "eslint_d",
   -- golang tools
   "gofumpt",
-  "golines",
   "gotests",
   "delve",
   "golangci-lint",
