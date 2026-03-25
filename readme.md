@@ -56,6 +56,21 @@ This NeoVim configuration is mostly used for GoLang coding.
 `<leader>uD`   - Toggle dim
 ```
 
+## Environment Variables
+
+Configured in `lua/utils/env.lua`. These control conditional plugin loading.
+
+| Variable | Values | Effect |
+|----------|--------|--------|
+| `NVIM_AI` | `"claudecode"` | Loads claudecode.nvim |
+| `NVIM_AI` | `"opencode"` or unset | Loads opencode.nvim (default) |
+| `NVIM_PHP` | any value (e.g. `"1"`) | Loads PHP tooling: intelephense LSP, phpcs/phpcbf/phpstan via mason, phpcbf formatter in conform, phpstan linter in nvim-lint, php treesitter parser |
+| `ZELLIJ` | (set automatically by Zellij) | Loads zellij-nav.nvim, disables OSC11, enables theme_watcher |
+
+### Dark mode in Zellij
+
+Inside Zellij, OSC11 (automatic dark/light detection) doesn't work. Instead, `lua/core/theme_watcher.lua` watches `~/.config/nvim/theme.txt` for changes. An OS-level mechanism (e.g. automation, cron) should call `set-theme.sh dark` or `set-theme.sh light` to trigger the switch. Outside Zellij, OSC11.nvim handles this automatically.
+
 ## Plugins
 
 Plugins are managed with [lazy.nvim](https://github.com/folke/lazy.nvim).
@@ -155,29 +170,13 @@ opencode AI integration for Neovim. Conditionally loaded.
 Treesitter integration for Neovim.
 
 #### Parsers
- - json
- - javascript
- - typescript
- - tsx
- - yaml
- - html
- - css
- - markdown
- - markdown_inline
- - graphql
- - bash
- - lua
- - vim
- - dockerfile
- - gitignore
- - query
- - go
- - templ
- - gomod
- - just
- - helm
- - proto
- - mermaid
+ - Web: html, css, javascript, typescript, tsx, graphql
+ - Data: json, yaml, markdown, markdown_inline
+ - Scripting: lua, bash, vim
+ - Go: go, gomod, templ
+ - Infra: dockerfile, helm, proto
+ - Other: gitignore, query, just, mermaid
+ - Conditional (`NVIM_PHP`): php
 
 ### vim-zellij-navigator
 [swaits/zellij-nav.nvim](https://github.com/swaits/zellij-nav.nvim)
@@ -202,18 +201,23 @@ Displays a popup with possible key bindings of the command you started typing.
 [neovim/nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)
 Official Neovim LSP Config.
 
-#### Other dependencies
-- antosha417/nvim-lsp-file-operations
-
-#### LSP configurations
+#### LSP servers
 - html
-- ts_ls
 - cssls
+- ts_ls
 - graphql
 - emmet_ls
+- jsonls
+- yamlls
+- marksman
 - lua_ls
+- bashls
 - gopls
 - templ
+- dockerls
+- helm_ls
+- buf_ls
+- intelephense (conditional, `NVIM_PHP`)
 
 #### Keybindings
 
@@ -235,34 +239,33 @@ Official Neovim LSP Config.
 ```
 
 ### mason
-[williamboman/mason.nvim](https://github.com/williamboman/mason.nvim)
-Package manager for neovim.
+[williamboman/mason.nvim](https://github.com/williamboman/mason.nvim) + [WhoIsSethDaniel/mason-tool-installer.nvim](https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim)
+Package manager for neovim. mason-tool-installer automatically installs the configured tools.
+
+Note: Mason uses its own registry names which differ from lspconfig names (e.g., `html-lsp` in mason vs `html` in lspconfig).
 
 Installs the following tools:
 
-- LSP
-   - ts_ls
-   - html
-   - cssls
-   - lua_ls
-   - graphql
-   - emmet_ls
-- Tools
-   - prettier
-   - stylua
+- LSP servers
+   - html-lsp, css-lsp, typescript-language-server, graphql-language-service-cli, emmet-ls
+   - json-lsp, yaml-language-server, marksman
+   - lua-language-server, bash-language-server
+   - gopls, templ
+   - dockerfile-language-server, helm-ls, buf
+- Formatters
+   - prettier, stylua
+- Linters
    - eslint_d
-   - gopls
-   - gofumpt
-   - golines
-   - gotests
-   - delve
-   - golangci-lint
-   - templ
+- Go tools
+   - gofumpt, gotests, delve, golangci-lint
+- Other
    - mmdc
+- Conditional (`NVIM_PHP`)
+   - intelephense, phpcs, phpcbf, phpstan
 
 ### nvim-lint
 [mfussenegger/nvim-lint](https://github.com/mfussenegger/nvim-lint)
-Linter integration for Neovim. Lints JavaScript/TypeScript with `eslint_d` and Go with `golangci-lint`.
+Linter integration for Neovim. Lints JavaScript/TypeScript with `eslint_d`, Go with `golangci-lint`, and conditionally PHP with `phpstan` (`NVIM_PHP`).
 
 #### Keybindings
 
@@ -272,6 +275,10 @@ Linter integration for Neovim. Lints JavaScript/TypeScript with `eslint_d` and G
 `<leader>li` - Trigger linting for current file
 `<leader>ui` - Toggle auto-linting
 ```
+
+### conform.nvim
+[stevearc/conform.nvim](https://github.com/stevearc/conform.nvim)
+Code formatting. Prettier for web/data filetypes, stylua for Lua, and conditionally phpcbf for PHP (`NVIM_PHP`). No format-on-save; formatting is triggered via the `gf` keymap.
 
 ### godoc.nvim
 [fredrikaverpil/godoc.nvim](https://github.com/fredrikaverpil/godoc.nvim)
