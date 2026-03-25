@@ -139,7 +139,7 @@ return {
     })
 
     -- enable all configured servers
-    vim.lsp.enable({
+    local servers = {
       -- web
       "html",
       "cssls",
@@ -160,6 +160,12 @@ return {
       "dockerls",
       "helm_ls",
       "buf_ls",
-    })
+    }
+
+    if require("utils.env").should_load.php then
+      vim.list_extend(servers, { "intelephense" })
+    end
+
+    vim.lsp.enable(servers)
   end,
 }

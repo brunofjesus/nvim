@@ -24,37 +24,43 @@ return {
 				-- enable indentation
 				indent = { enable = true },
 				-- ensure these language parsers are installed
-				ensure_installed = {
-					-- web
-					"html",
-					"css",
-					"javascript",
-					"typescript",
-					"tsx",
-					"graphql",
-					-- data
-					"json",
-					"yaml",
-					"markdown",
-					"markdown_inline",
-					-- scripting
-					"lua",
-					"bash",
-					"vim",
-					-- golang
-					"go",
-					"gomod",
-					"templ",
-					-- infra
-					"dockerfile",
-					"helm",
-					"proto",
-					-- other
-					"gitignore",
-					"query",
-					"just",
-					"mermaid",
-				},
+				ensure_installed = (function()
+					local parsers = {
+						-- web
+						"html",
+						"css",
+						"javascript",
+						"typescript",
+						"tsx",
+						"graphql",
+						-- data
+						"json",
+						"yaml",
+						"markdown",
+						"markdown_inline",
+						-- scripting
+						"lua",
+						"bash",
+						"vim",
+						-- golang
+						"go",
+						"gomod",
+						"templ",
+						-- infra
+						"dockerfile",
+						"helm",
+						"proto",
+						-- other
+						"gitignore",
+						"query",
+						"just",
+						"mermaid",
+					}
+					if require("utils.env").should_load.php then
+						table.insert(parsers, "php")
+					end
+					return parsers
+				end)(),
 				incremental_selection = {
 					enable = true,
 					keymaps = {

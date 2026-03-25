@@ -11,6 +11,10 @@ return {
       go = { "golangcilint" },
     }
 
+    if require("utils.env").should_load.php then
+      lint.linters_by_ft.php = { "phpstan" }
+    end
+
     local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
 
     -- Variable to track auto-linting state
@@ -49,8 +53,6 @@ return {
         vim.keymap.set("n", "<leader>ui", toggle_auto_lint, { desc = "Enable auto-linting" })
       end
     end
-
-
 
     -- Key mapping to trigger manual linting
     vim.keymap.set("n", "<leader>li", function()

@@ -8,6 +8,7 @@ M.raw = {
   zellij = vim.env.ZELLIJ,
   vimruntime = vim.fn.expand("$VIMRUNTIME"),
   nvim_ai = os.getenv("NVIM_AI"),
+  nvim_php = os.getenv("NVIM_PHP"),
 }
 
 -- Computed boolean flags for common checks
@@ -21,6 +22,7 @@ M.should_load = {
   claudecode = M.raw.nvim_ai == "claudecode",
   zellij_navigator = M.flags.in_zellij,
   osc11 = not M.flags.in_zellij,
+  php = M.raw.nvim_php ~= nil,
 }
 
 -- LSP-specific environment paths
