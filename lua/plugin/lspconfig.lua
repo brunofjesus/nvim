@@ -36,7 +36,9 @@ return {
         local keymap = vim.keymap
 
         opts.desc = "Format current file"
-        keymap.set("n", "gf", vim.lsp.buf.format, opts)
+        keymap.set("n", "gf", function()
+          require("conform").format({ lsp_fallback = true })
+        end, opts)
 
         opts.desc = "Go to previous diagnostic"
         keymap.set("n", "[d", function() vim.diagnostic.jump({ count = -1, float = true }) end, opts)

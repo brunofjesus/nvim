@@ -46,6 +46,7 @@ if env.should_load.php then
     -- php
     "intelephense",
     "phpcs",
+    "phpcbf",
     "phpstan",
   })
 end
