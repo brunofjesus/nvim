@@ -2,38 +2,9 @@ return {
   "neovim/nvim-lspconfig",
   event = { "BufReadPre", "BufNewFile" },
   dependencies = {
-    { "antosha417/nvim-lsp-file-operations",
-      dependencies = { "nvim-lua/plenary.nvim" },
-      config = true
-    }, -- TODO: check if this is necessary
     'saghen/blink.cmp',
   },
   config = function()
-    local keymap = vim.keymap
-
-    local opts = { noremap = true, silent = true }
-    local on_attach = function(client, bufnr)
-      opts.buffer = bufnr
-
-      -- set keybinds
-      opts.desc = "Format current file"
-      keymap.set("n", "gf", vim.lsp.buf.format, opts) -- show lsp type definitions
-
-      opts.desc = "Go to previous diagnostic"
-      keymap.set("n", "[d", function() vim.diagnostic.jump({ count = -1, float = true }); end, opts) -- jump to previous diagnostic in buffer
-
-      opts.desc = "Go to next diagnostic"
-      keymap.set("n", "]d", function() vim.diagnostic.jump({ count = 1, float = true }); end, opts) -- jump to next diagnostic in buffer
-
-      opts.desc = "Show documentation for what is under cursor"
-      keymap.set("n", "K", vim.lsp.buf.hover, opts) -- show documentation for what is under cursor
-
-      opts.desc = "Restart LSP"
-      keymap.set("n", "<leader>rs", ":LspRestart<CR>", opts) -- mapping to restart lsp if necessary
-    end
-
-    -- used to enable autocompletion (assign to every lsp server config)
-    local capabilities = require("blink.cmp").get_lsp_capabilities()
     vim.diagnostic.config({
       virtual_lines = { current_line = true },
       signs = {
@@ -58,50 +29,52 @@ return {
       },
     })
 
-    -- configure html server
-    vim.lsp.config("html", {
-      capabilities = capabilities,
-      on_attach = on_attach,
+    -- LSP keymaps
+    vim.api.nvim_create_autocmd("LspAttach", {
+      callback = function(ev)
+        local opts = { buffer = ev.buf, noremap = true, silent = true }
+        local keymap = vim.keymap
+
+        opts.desc = "Format current file"
+        keymap.set("n", "gf", vim.lsp.buf.format, opts)
+
+        opts.desc = "Go to previous diagnostic"
+        keymap.set("n", "[d", function() vim.diagnostic.jump({ count = -1, float = true }) end, opts)
+
+        opts.desc = "Go to next diagnostic"
+        keymap.set("n", "]d", function() vim.diagnostic.jump({ count = 1, float = true }) end, opts)
+
+        opts.desc = "Show documentation for what is under cursor"
+        keymap.set("n", "K", vim.lsp.buf.hover, opts)
+
+        opts.desc = "Restart LSP"
+        keymap.set("n", "<leader>rs", ":LspRestart<CR>", opts)
+      end,
     })
 
-    -- configure typescript server with plugin
-    vim.lsp.config("ts_ls", {
-      capabilities = capabilities,
-      on_attach = on_attach,
-    })
-
-    -- configure css server
-    vim.lsp.config("cssls", {
-      capabilities = capabilities,
-      on_attach = on_attach,
+    -- apply capabilities to all servers
+    vim.lsp.config("*", {
+      capabilities = require("blink.cmp").get_lsp_capabilities(),
     })
 
     -- configure graphql language server
     vim.lsp.config("graphql", {
-      capabilities = capabilities,
-      on_attach = on_attach,
       filetypes = { "graphql", "gql", "svelte", "typescriptreact", "javascriptreact" },
     })
 
     -- configure emmet language server
     vim.lsp.config("emmet_ls", {
-      capabilities = capabilities,
-      on_attach = on_attach,
       filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "svelte" },
     })
 
     -- configure lua server (with special settings)
     vim.lsp.config("lua_ls", {
-      capabilities = capabilities,
-      on_attach = on_attach,
-      settings = { -- custom settings for lua
+      settings = {
         Lua = {
-          -- make the language server recognize "vim" global
           diagnostics = {
             globals = { "vim" },
           },
           workspace = {
-            -- make language server aware of runtime files
             library = {
               [require("utils.env").lsp.vimruntime_lua] = true,
               [vim.fn.stdpath("config") .. "/lua"] = true,
@@ -110,10 +83,9 @@ return {
         },
       },
     })
+
     -- configure golang
     vim.lsp.config("gopls", {
-      on_attach = on_attach,
-      capabilities = capabilities,
       cmd = { "gopls" },
       filetypes = { "go", "gomod", "gowork", "gotmpl", "templ" },
       settings = {
@@ -155,15 +127,39 @@ return {
 
     -- golang templ
     vim.lsp.config("templ", {
-      on_attach = on_attach,
       flags = {
         debounce_text_changes = 150,
       },
     })
+
     vim.filetype.add({
       extension = {
         templ = "templ",
       },
+    })
+
+    -- enable all configured servers
+    vim.lsp.enable({
+      -- web
+      "html",
+      "cssls",
+      "ts_ls",
+      "graphql",
+      "emmet_ls",
+      -- data
+      "jsonls",
+      "yamlls",
+      "marksman",
+      -- scripting
+      "lua_ls",
+      "bashls",
+      -- golang
+      "gopls",
+      "templ",
+      -- infra
+      "dockerls",
+      "helm_ls",
+      "buf_ls",
     })
   end,
 }

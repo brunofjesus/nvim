@@ -1,57 +1,58 @@
 return {
-  "williamboman/mason.nvim",
+  "WhoIsSethDaniel/mason-tool-installer.nvim",
   dependencies = {
-    "williamboman/mason-lspconfig.nvim",
-    "WhoIsSethDaniel/mason-tool-installer.nvim",
-  },
-  config = function()
-    -- import mason
-    local mason = require("mason")
-    local mason_lspconfig = require("mason-lspconfig")
-    local mason_tool_installer = require("mason-tool-installer")
-
-    -- enable mason and configure  ui
-    mason.setup({
-      ui = {
-        icons = {
-          package_installed = "✓",
-          package_pending = "➜",
-          package_uninstalled = "✗",
+    {
+      "williamboman/mason.nvim",
+      opts = {
+        ui = {
+          icons = {
+            package_installed = "✓",
+            package_pending = "➜",
+            package_uninstalled = "✗",
+          },
         },
       },
-    })
-
-    mason_lspconfig.setup({
-      -- list of servers for mason to install
-      ensure_installed = {
-        -- web development
-        "ts_ls",
-        "html",
-        "cssls",
-        "lua_ls",
-        "graphql",
-        "emmet_ls",
-      },
-      -- auto-install configured servers (with lspconfig)
-      automatic_installation = true, -- not the same as ensure_installed
-    })
-
-    mason_tool_installer.setup({
-      ensure_installed = {
-        "prettier", -- prettier formatter
-        "stylua", -- lua formatter
-        "eslint_d", -- js linter 
-        -- golang
-        "gopls",
-        "gofumpt",
-        "golines",
-        "gotests",
-        "delve",
-        "golangci-lint",
-        "templ",
-        -- diagrams
-        "mmdc",
-      },
-    })
-  end,
+    },
+  },
+  opts = {
+    -- NOTE: LSP server names here use mason registry names, which differ from
+    -- lspconfig names (e.g., "html-lsp" here vs "html" in lspconfig).
+    -- mason-lspconfig used to handle this mapping, but since we use
+    -- mason-tool-installer directly, we need the mason registry names.
+    ensure_installed = {
+      -- lsp servers: web
+      "html-lsp",
+      "css-lsp",
+      "typescript-language-server",
+      "graphql-language-service-cli",
+      "emmet-ls",
+      -- lsp servers: data
+      "json-lsp",
+      "yaml-language-server",
+      "marksman",
+      -- lsp servers: scripting
+      "lua-language-server",
+      "bash-language-server",
+      -- lsp servers: golang
+      "gopls",
+      "templ",
+      -- lsp servers: infra
+      "dockerfile-language-server",
+      "helm-ls",
+      "buf",
+      -- formatters
+      "prettier",
+      "stylua",
+      -- linters
+      "eslint_d",
+      -- golang tools
+      "gofumpt",
+      "golines",
+      "gotests",
+      "delve",
+      "golangci-lint",
+      -- diagrams
+      "mmdc",
+    },
+  },
 }

@@ -9,7 +9,7 @@ return {
 				"nvim-treesitter/nvim-treesitter-textobjects",
 				branch = "master",
 			},
-			"windwp/nvim-ts-autotag",
+			{ "windwp/nvim-ts-autotag", config = true },
 		},
 		config = function()
 			-- import nvim-treesitter plugin
@@ -23,35 +23,37 @@ return {
 				},
 				-- enable indentation
 				indent = { enable = true },
-				-- enable autotagging (w/ nvim-ts-autotag plugin)
-				autotag = {
-					enable = true,
-				},
 				-- ensure these language parsers are installed
 				ensure_installed = {
-					"json",
+					-- web
+					"html",
+					"css",
 					"javascript",
 					"typescript",
 					"tsx",
+					"graphql",
+					-- data
+					"json",
 					"yaml",
-					"html",
-					"css",
 					"markdown",
 					"markdown_inline",
-					"graphql",
-					"bash",
+					-- scripting
 					"lua",
+					"bash",
 					"vim",
-					"dockerfile",
-					"gitignore",
-					"query",
+					-- golang
 					"go",
-					"templ",
 					"gomod",
-					"just",
+					"templ",
+					-- infra
+					"dockerfile",
 					"helm",
 					"proto",
-          "mermaid",
+					-- other
+					"gitignore",
+					"query",
+					"just",
+					"mermaid",
 				},
 				incremental_selection = {
 					enable = true,
