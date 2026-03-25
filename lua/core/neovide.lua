@@ -1,7 +1,7 @@
 if vim.g.neovide then
   vim.g.neovide_remember_window_size = true
 
-  vim.g.gui_font_default_size = 12
+  vim.g.gui_font_default_size = 14
   vim.g.gui_font_size = vim.g.gui_font_default_size
 
   vim.g.gui_font_face = "JetBrainsMono Nerd Font"
