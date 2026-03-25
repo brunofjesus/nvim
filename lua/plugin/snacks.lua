@@ -57,10 +57,12 @@ return {
     picker = {
       enabled = true,
       on_show = function(picker)
+        if picker.opts.source == "explorer" then return end
         picker._prev_animate = vim.g.snacks_animate
         vim.g.snacks_animate = false
       end,
       on_close = function(picker)
+        if picker.opts.source == "explorer" then return end
         vim.g.snacks_animate = picker._prev_animate
       end,
     },
