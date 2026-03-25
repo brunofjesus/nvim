@@ -54,7 +54,16 @@ return {
         wo = { wrap = true } -- Wrap notifications
       }
     },
-    picker = { enabled = true },
+    picker = {
+      enabled = true,
+      on_show = function(picker)
+        picker._prev_animate = vim.g.snacks_animate
+        vim.g.snacks_animate = false
+      end,
+      on_close = function(picker)
+        vim.g.snacks_animate = picker._prev_animate
+      end,
+    },
     terminal = { enabled = true },
     image = {
       enabled = true,
