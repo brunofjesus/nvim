@@ -166,7 +166,7 @@ return {
     -- Explorer
     { "<leader>e",       function() Snacks.picker.explorer() end,                                desc = "Explorer" },
     -- Image
-    { "K",               function() Snacks.image.hover() end,                                    desc = "Show image under cursor" },
+    { "<leader>k",               function() Snacks.image.hover() end,                                    desc = "Show image under cursor" },
     --conflicts with keymaps.lua keybinding, rely on cursor movement to close
     --{ "<Esc>",           function() Snacks.image.doc.hover_close() end,                          desc = "Close image hover" },
   },
