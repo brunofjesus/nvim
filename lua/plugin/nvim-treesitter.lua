@@ -47,9 +47,7 @@ return {
 				table.insert(parsers, "php")
 			end
 
-			require("nvim-treesitter").setup({
-				ensure_installed = parsers,
-			})
+			require("nvim-treesitter").install(parsers)
 
 			-- incremental selection
 			vim.keymap.set("n", "<C-space>", function()
