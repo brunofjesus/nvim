@@ -89,7 +89,7 @@ return {
     -- configure golang
     vim.lsp.config("gopls", {
       cmd = { "gopls" },
-      filetypes = { "go", "gomod", "gowork", "gotmpl", "templ" },
+      filetypes = { "go", "gomod", "gowork", "gotmpl", "templ", "tmpl" },
       settings = {
         gopls = {
           gofumpt = true,
