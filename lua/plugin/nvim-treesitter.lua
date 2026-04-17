@@ -48,17 +48,6 @@ return {
 			end
 
 			require("nvim-treesitter").install(parsers)
-
-			-- incremental selection
-			vim.keymap.set("n", "<C-space>", function()
-				require("nvim-treesitter.incremental_selection").init()
-			end)
-			vim.keymap.set("v", "<C-space>", function()
-				require("nvim-treesitter.incremental_selection").increment()
-			end)
-			vim.keymap.set("v", "<bs>", function()
-				require("nvim-treesitter.incremental_selection").decrement()
-			end)
 		end,
 	},
 }
