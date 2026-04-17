@@ -33,6 +33,7 @@ return {
 				"go",
 				"gomod",
 				"templ",
+				"gotmpl",
 				-- infra
 				"dockerfile",
 				"helm",
