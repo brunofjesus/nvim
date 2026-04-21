@@ -134,6 +134,11 @@ return {
       },
     })
 
+    -- prefer composer.json over .git so each package in a monorepo is its own workspace
+    vim.lsp.config("intelephense", {
+      root_markers = { "composer.json", ".git" },
+    })
+
     vim.filetype.add({
       extension = {
         templ = "templ",
