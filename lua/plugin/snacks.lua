@@ -66,7 +66,9 @@ return {
         vim.g.snacks_animate = picker._prev_animate
       end,
     },
-    terminal = { enabled = true },
+    terminal = {
+      enabled = true,
+    },
     image = {
       enabled = true,
       doc = {
@@ -95,6 +97,7 @@ return {
     { "<leader>un",      function() Snacks.notifier.hide() end,                                  desc = "Dismiss All Notifications" },
     { "<c-/>",           function() Snacks.terminal() end,                                       desc = "Toggle Terminal" },
     { "<c-_>",           function() Snacks.terminal() end,                                       desc = "which_key_ignore" },
+    { "<leader>uC",      function() Snacks.terminal.colorize() end,                              desc = "Colorize buffer" },
     { "]]",              function() Snacks.words.jump(vim.v.count1) end,                         desc = "Next Reference",              mode = { "n", "t" } },
     { "[[",              function() Snacks.words.jump(-vim.v.count1) end,                        desc = "Prev Reference",              mode = { "n", "t" } },
     -- Snacks
@@ -151,7 +154,6 @@ return {
     { "<leader>sR",      function() Snacks.picker.resume() end,                                  desc = "Resume" },
     { "<leader>sq",      function() Snacks.picker.qflist() end,                                  desc = "Quickfix List" },
     { "<leader>sx",      function() Snacks.picker.smart() end,                                   desc = "Smart Pick" },
-    { "<leader>uC",      function() Snacks.picker.colorschemes() end,                            desc = "Colorschemes" },
     { "<leader>qp",      function() Snacks.picker.projects() end,                                desc = "Projects" },
     { "<leader>ub",      function() vim.cmd("ToggleDarkMode") end,                               desc = "Dark Mode" },
     -- LSP
