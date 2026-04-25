@@ -3,6 +3,7 @@ return {
   event = { "BufReadPre", "BufNewFile" },
   dependencies = {
     'saghen/blink.cmp',
+    'joerdav/templ.vim', -- templ syntax highlight
   },
   config = function()
     vim.diagnostic.config({
