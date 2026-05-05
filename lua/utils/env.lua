@@ -21,7 +21,6 @@ M.should_load = {
   opencode = M.raw.nvim_ai == "opencode" or M.raw.nvim_ai == nil,
   claudecode = M.raw.nvim_ai == "claudecode",
   zellij_navigator = M.flags.in_zellij,
-  osc11 = not M.flags.in_zellij,
   php = M.raw.nvim_php ~= nil,
 }
 
