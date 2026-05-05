@@ -65,11 +65,6 @@ Configured in `lua/utils/env.lua`. These control conditional plugin loading.
 | `NVIM_AI` | `"claudecode"` | Loads claudecode.nvim |
 | `NVIM_AI` | `"opencode"` or unset | Loads opencode.nvim (default) |
 | `NVIM_PHP` | any value (e.g. `"1"`) | Loads PHP tooling: intelephense LSP, phpcs/phpcbf/phpstan via mason, phpcbf formatter in conform, phpstan linter in nvim-lint, php treesitter parser |
-| `ZELLIJ` | (set automatically by Zellij) | Loads zellij-nav.nvim, disables OSC11, enables theme_watcher |
-
-### Dark mode in Zellij
-
-Inside Zellij, OSC11 (automatic dark/light detection) doesn't work. Instead, `lua/core/theme_watcher.lua` watches `~/.config/nvim/theme.txt` for changes. An OS-level mechanism (e.g. automation, cron) should call `set-theme.sh dark` or `set-theme.sh light` to trigger the switch. Outside Zellij, OSC11.nvim handles this automatically.
 
 ## Plugins
 

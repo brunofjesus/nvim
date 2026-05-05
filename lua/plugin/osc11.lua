@@ -1,7 +1,6 @@
 local env = require("utils.env")
 return {
   "afonsofrancof/OSC11.nvim",
-  enabled = env.should_load.osc11,
   opts = {
     on_dark = function()
       vim.cmd("EnableDarkMode")
