@@ -78,6 +78,9 @@ return {
         max_height = 60,
       },
     },
+    lazygit = {
+      configure = false,
+    }
   },
   keys = {
     { "<leader>z",       function() Snacks.zen() end,                                            desc = "Toggle Zen Mode" },
