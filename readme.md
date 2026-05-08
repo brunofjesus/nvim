@@ -344,6 +344,20 @@ A collection of small QoL plugins for Neovim. Handles file picking, terminal, no
 `gO` / `<leader>o` - LSP symbols
 ```
 
+### Spell
+Custom spell configuration (`lua/core/spell.lua`). Enables spell checking for English and Portuguese, with keymaps to add/remove words per language.
+
+#### Keybindings
+
+- NORMAL mode
+
+```help
+`zge` - Add word under cursor to English dictionary
+`zgp` - Add word under cursor to Portuguese dictionary
+`zue` - Remove word under cursor from English dictionary
+`zup` - Remove word under cursor from Portuguese dictionary
+```
+
 ### OSC11.nvim
 [afonsofrancof/OSC11.nvim](https://github.com/afonsofrancof/OSC11.nvim)
 Automatically switches between dark and light Catppuccin themes based on the terminal's background color (OSC 11 response). Conditionally loaded.
