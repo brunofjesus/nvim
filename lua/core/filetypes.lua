@@ -11,6 +11,7 @@ ft.add {
     ['.*templates/.+%.yml'] = 'helm',
     ['.*templates/.+%.tpl'] = 'helm',
     ['helmfile.*%.yaml'] = 'helm',
+    ["Dockerfile%d+"] = "dockerfile",
   },
   filename = {
     ['Tiltfile'] = 'python',
