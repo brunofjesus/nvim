@@ -1,4 +1,3 @@
-local env = require("utils.env")
 return {
   "afonsofrancof/OSC11.nvim",
   opts = {
