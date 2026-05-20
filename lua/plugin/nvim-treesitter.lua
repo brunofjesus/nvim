@@ -49,6 +49,20 @@ return {
 			end
 
 			require("nvim-treesitter").install(parsers)
+
+			local notified = {}
+			vim.api.nvim_create_autocmd("FileType", {
+				callback = function(args)
+					local ft = vim.bo[args.buf].filetype
+					-- skip non-file buffers (pickers, dapui, terminals, prompts) — only real files have buftype == ""
+					if ft == "" or vim.bo[args.buf].buftype ~= "" then return end
+					local ok = pcall(vim.treesitter.start, args.buf)
+					if not ok and not notified[ft] then
+						notified[ft] = true
+						vim.notify("no treesitter parser for filetype: " .. ft, vim.log.levels.WARN)
+					end
+				end,
+			})
 		end,
 	},
 }
