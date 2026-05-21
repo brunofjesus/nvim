@@ -1,3 +1,33 @@
+local function with_toggle_exclude(picker_fn)
+  local exclude = { "vendor" }
+  return function()
+    picker_fn({
+      exclude = exclude,
+      actions = {
+        toggle_exclude = function(picker)
+          if picker.opts.exclude and #picker.opts.exclude > 0 then
+            picker.opts.exclude = {}
+          else
+            picker.opts.exclude = exclude
+          end
+          picker.list:set_target()
+          picker:find()
+        end,
+      },
+      win = {
+        input = {
+          keys = {
+            ["<a-x>"] = { "toggle_exclude", mode = { "i", "n" } },
+          },
+        },
+      },
+    })
+  end
+end
+
+local function CustomFilesPicker() with_toggle_exclude(Snacks.picker.files)() end
+local function CustomGrepPicker() with_toggle_exclude(Snacks.picker.grep)() end
+
 return {
   "folke/snacks.nvim",
   priority = 1000,
@@ -123,14 +153,14 @@ return {
     --  end,
     --}
     { "<leader>,",       function() Snacks.picker.buffers() end,                                 desc = "Buffers" },
-    { "<leader>/",       function() Snacks.picker.grep() end,                                    desc = "Grep" },
+    { "<leader>/",       CustomGrepPicker,                                                       desc = "Grep" },
     { "<leader>:",       function() Snacks.picker.command_history() end,                         desc = "Command History" },
-    { "<leader><space>", function() Snacks.picker.files() end,                                   desc = "Find Files" },
+    { "<leader><space>", CustomFilesPicker, desc = "Find Project Files" },
     -- find
     { "<leader>fb",      function() Snacks.picker.buffers() end,                                 desc = "Buffers" },
-    { "<leader>fs",      function() Snacks.picker.grep() end,                                    desc = "Grep" },
+    { "<leader>fs",      CustomGrepPicker,                                                       desc = "Grep" },
     { "<leader>fc",      function() Snacks.picker.files({ cwd = vim.fn.stdpath("config") }) end, desc = "Find Config File" },
-    { "<leader>ff",      function() Snacks.picker.files() end,                                   desc = "Find Files" },
+    { "<leader>ff",      CustomFilesPicker,                                                      desc = "Find Files" },
     { "<leader>fg",      function() Snacks.picker.git_files() end,                               desc = "Find Git Files" },
     { "<leader>fr",      function() Snacks.picker.recent() end,                                  desc = "Recent" },
     -- git (kind of redundant to the lazygit actions)
@@ -157,6 +187,7 @@ return {
     { "<leader>sR",      function() Snacks.picker.resume() end,                                  desc = "Resume" },
     { "<leader>sq",      function() Snacks.picker.qflist() end,                                  desc = "Quickfix List" },
     { "<leader>sx",      function() Snacks.picker.smart() end,                                   desc = "Smart Pick" },
+    { "<leader>sp",      function() Snacks.picker.spelling() end,                                desc = "Spelling fix" },
     { "<leader>qp",      function() Snacks.picker.projects() end,                                desc = "Projects" },
     { "<leader>ub",      function() vim.cmd("ToggleDarkMode") end,                               desc = "Dark Mode" },
     -- LSP

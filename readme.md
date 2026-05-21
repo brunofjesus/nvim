@@ -300,17 +300,17 @@ A collection of small QoL plugins for Neovim. Handles file picking, terminal, no
 - NORMAL mode
 
 ```help
-`<leader><space>` - Find files
+`<leader><space>` - Find files (with `<M-x>` to toggle exclusions, e.g. `vendor`)
 `<leader>,`       - Buffers
-`<leader>/`       - Grep
+`<leader>/`       - Grep (with `<M-x>` to toggle exclusions, e.g. `vendor`)
 `<leader>:`       - Command history
 `<leader>e`       - File explorer
-`<leader>ff`      - Find files
+`<leader>ff`      - Find files (with `<M-x>` to toggle exclusions, e.g. `vendor`)
 `<leader>fg`      - Find git files
 `<leader>fr`      - Recent files
 `<leader>fb`      - Buffers
 `<leader>fc`      - Find config file
-`<leader>fs`      - Grep
+`<leader>fs`      - Grep (with `<M-x>` to toggle exclusions, e.g. `vendor`)
 `<leader>sb`      - Buffer lines
 `<leader>sB`      - Grep open buffers
 `<leader>sw`      - Grep word / visual selection
