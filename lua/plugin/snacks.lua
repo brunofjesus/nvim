@@ -18,6 +18,8 @@ local function with_toggle_exclude(picker_fn)
         input = {
           keys = {
             ["<a-x>"] = { "toggle_exclude", mode = { "i", "n" } },
+            -- e.g: file:!.txt$
+            ["<a-g>"] = { "toggle_live", mode = { "i", "n" } },
           },
         },
       },
@@ -41,9 +43,9 @@ return {
         pick = nil,
         ---@type snacks.dashboard.Item[]
         keys = {
-          { icon = " ", key = "f", desc = "Find File", action = ":lua Snacks.dashboard.pick('files')" },
+          { icon = " ", key = "f", desc = "Find File", action = CustomFilesPicker },
           { icon = " ", key = "n", desc = "New File", action = ":ene | startinsert" },
-          { icon = " ", key = "g", desc = "Find Text", action = ":lua Snacks.dashboard.pick('live_grep')" },
+          { icon = " ", key = "g", desc = "Find Text", action = CustomGrepPicker },
           { icon = " ", key = "r", desc = "Recent Files", action = ":lua Snacks.dashboard.pick('oldfiles')" },
           { icon = " ", key = "c", desc = "Config", action = ":lua Snacks.dashboard.pick('files', {cwd = vim.fn.stdpath('config')})" },
           { icon = " ", key = "s", desc = "Restore Session", section = "session" },
