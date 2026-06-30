@@ -65,6 +65,19 @@ return {
       filetypes = { "graphql", "gql", "svelte", "typescriptreact", "javascriptreact" },
     })
 
+    -- configure eslint language server (diagnostics only; no format on save)
+    vim.lsp.config("eslint", {
+      filetypes = {
+        "javascript", "javascriptreact", "javascript.jsx",
+        "typescript", "typescriptreact", "typescript.tsx",
+        "vue", "svelte", "astro",
+      },
+      settings = {
+        -- "auto" resolves the right working dir per buffer (monorepo-friendly)
+        workingDirectories = { mode = "auto" },
+      },
+    })
+
     -- configure emmet language server
     vim.lsp.config("emmet_ls", {
       filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "svelte" },
@@ -152,6 +165,7 @@ return {
       "html",
       "cssls",
       "ts_ls",
+      "eslint",
       "graphql",
       "emmet_ls",
       -- data

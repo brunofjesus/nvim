@@ -10,6 +10,7 @@ local ensure_installed = {
   "html-lsp",
   "css-lsp",
   "typescript-language-server",
+  "eslint-lsp",
   "graphql-language-service-cli",
   "emmet-ls",
   -- lsp servers: data
@@ -29,8 +30,6 @@ local ensure_installed = {
   -- formatters
   "prettier",
   "stylua",
-  -- linters
-  "eslint_d",
   -- golang tools
   "gofumpt",
   "gotests",
