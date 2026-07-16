@@ -54,7 +54,11 @@ return {
 		vim.keymap.set({ "n", "x" }, "<leader>as", function()
 			opencode.prompt("@this")
 		end, { desc = "Add to opencode" })
-    vim.keymap.set({ 'n', 't' }, '<leader>ac', function()
+    -- NOTE: keep this out of 't' (terminal) mode. <leader> is <space>, so mapping
+    -- <leader>ac in terminal mode makes Neovim wait 'timeoutlen' on every <space>
+    -- press in terminal buffers, causing sluggish space. Use <C-.> to toggle from
+    -- terminal mode instead. (Regression previously fixed in ea8b22a.)
+    vim.keymap.set({ 'n' }, '<leader>ac', function()
       require('snacks.terminal').toggle(opencode_cmd, snacks_terminal_opts)
     end, { desc = 'Toggle opencode' })
     vim.keymap.set({ 'n', 't' }, '<C-.>', function()
