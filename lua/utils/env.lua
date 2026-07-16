@@ -6,6 +6,7 @@ local M = {}
 -- Raw environment variable access
 M.raw = {
   zellij = vim.env.ZELLIJ,
+  tmux = vim.env.TMUX,
   vimruntime = vim.fn.expand("$VIMRUNTIME"),
   nvim_ai = os.getenv("NVIM_AI"),
   nvim_php = os.getenv("NVIM_PHP"),
@@ -14,6 +15,7 @@ M.raw = {
 -- Computed boolean flags for common checks
 M.flags = {
   in_zellij = M.raw.zellij ~= nil,
+  in_tmux = M.raw.tmux ~= nil,
 }
 
 -- Plugin loading conditions
@@ -21,6 +23,7 @@ M.should_load = {
   opencode = M.raw.nvim_ai == "opencode" or M.raw.nvim_ai == nil,
   claudecode = M.raw.nvim_ai == "claudecode",
   zellij_navigator = M.flags.in_zellij,
+  tmux_navigator = M.flags.in_tmux,
   php = M.raw.nvim_php ~= nil,
 }
 
