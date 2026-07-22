@@ -4,6 +4,7 @@ return {
     opts = {
         auto_preview = false, -- don't render on load
         render_all = true,
+        map_gx = false, -- breaks open links outside of tables
     },
     keys = {
       { "<leader>mf", "<cmd>MarkdownTableFloatPreview<cr>", desc = "Float Markdown table preview" },
