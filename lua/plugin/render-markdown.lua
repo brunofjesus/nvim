@@ -15,7 +15,7 @@ return {
       enabled = true,
       anti_conceal = {
         --enabled = false,
-        disabled_modes = {"n"},
+        --disabled_modes = {"n"},
       },
     },
 }
