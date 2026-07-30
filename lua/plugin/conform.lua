@@ -9,6 +9,7 @@ local formatters_by_ft = {
   css = { "prettier" },
   markdown = { "prettier" },
   lua = { "stylua" },
+  python = { "ruff_format" },
 }
 
 if require("utils.env").should_load.php then

@@ -175,6 +175,8 @@ return {
       -- scripting
       "lua_ls",
       "bashls",
+      -- python
+      "basedpyright",
       -- golang
       "gopls",
       "templ",

@@ -7,6 +7,7 @@ return {
 
     lint.linters_by_ft = {
       go = { "golangcilint" },
+      python = { "ruff" },
     }
 
     if require("utils.env").should_load.php then

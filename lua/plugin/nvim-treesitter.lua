@@ -57,6 +57,8 @@ return {
 				"dockerfile",
 				"helm",
 				"proto",
+        -- python
+        "python",
 				-- other
 				"gitignore",
 				"query",

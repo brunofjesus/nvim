@@ -20,6 +20,9 @@ local ensure_installed = {
   -- lsp servers: scripting
   "lua-language-server",
   "bash-language-server",
+  -- lsp servers: python
+  "basedpyright",
+  "ruff",
   -- lsp servers: golang
   "gopls",
   "templ",

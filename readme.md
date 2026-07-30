@@ -207,6 +207,7 @@ Official Neovim LSP Config.
 - marksman
 - lua_ls
 - bashls
+- basedpyright
 - gopls
 - templ
 - dockerls
@@ -245,12 +246,13 @@ Installs the following tools:
    - html-lsp, css-lsp, typescript-language-server, graphql-language-service-cli, emmet-ls
    - json-lsp, yaml-language-server, marksman
    - lua-language-server, bash-language-server
+   - basedpyright, ruff
    - gopls, templ
    - dockerfile-language-server, helm-ls, buf
 - Formatters
-   - prettier, stylua
+   - prettier, stylua, ruff (`ruff_format`)
 - Linters
-   - eslint_d
+   - eslint_d, ruff
 - Go tools
    - gofumpt, gotests, delve, golangci-lint
 - Other
@@ -260,7 +262,7 @@ Installs the following tools:
 
 ### nvim-lint
 [mfussenegger/nvim-lint](https://github.com/mfussenegger/nvim-lint)
-Linter integration for Neovim. Lints JavaScript/TypeScript with `eslint_d`, Go with `golangci-lint`, and conditionally PHP with `phpstan` (`NVIM_PHP`).
+Linter integration for Neovim. Lints JavaScript/TypeScript with `eslint_d`, Go with `golangci-lint`, Python with `ruff`, and conditionally PHP with `phpstan` (`NVIM_PHP`).
 
 #### Keybindings
 
@@ -273,7 +275,7 @@ Linter integration for Neovim. Lints JavaScript/TypeScript with `eslint_d`, Go w
 
 ### conform.nvim
 [stevearc/conform.nvim](https://github.com/stevearc/conform.nvim)
-Code formatting. Prettier for web/data filetypes, stylua for Lua, and conditionally phpcbf for PHP (`NVIM_PHP`). No format-on-save; formatting is triggered via the `gf` keymap.
+Code formatting. Prettier for web/data filetypes, stylua for Lua, ruff for Python, and conditionally phpcbf for PHP (`NVIM_PHP`). No format-on-save; formatting is triggered via the `gf` keymap.
 
 ### godoc.nvim
 [fredrikaverpil/godoc.nvim](https://github.com/fredrikaverpil/godoc.nvim)
