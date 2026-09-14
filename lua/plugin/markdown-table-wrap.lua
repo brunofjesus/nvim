@@ -1,5 +1,6 @@
 return {
     'ice345/markdown-table-wrap.nvim',
+    enabled = false,
     ft = 'markdown',
     -- The plugin's plugin/ file auto-calls setup() with defaults (map_gx=true)
     -- before lazy applies our opts, which maps gx regardless. Set the load
