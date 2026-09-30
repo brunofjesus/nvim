@@ -25,6 +25,12 @@ return {
       return vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
         group = lint_augroup,
         callback = function()
+          -- Skip virtual buffers like octo:// (PR review diffs). They aren't
+          -- real files on disk, so passing them to golangci-lint makes it log
+          -- an error and exit with code 7.
+          if vim.api.nvim_buf_get_name(0):match("^%w+://") then
+            return
+          end
           lint.try_lint()
         end,
       })

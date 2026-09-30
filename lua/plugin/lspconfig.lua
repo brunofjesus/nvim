@@ -33,6 +33,16 @@ return {
     -- LSP keymaps
     vim.api.nvim_create_autocmd("LspAttach", {
       callback = function(ev)
+        -- Don't let language servers attach to octo:// buffers (e.g. PR review
+        -- diffs). Their non-file:// URIs make servers like gopls throw a
+        -- "DocumentURI scheme is not 'file'" JSON RPC parse error.
+        if vim.api.nvim_buf_get_name(ev.buf):match("^octo://") then
+          vim.schedule(function()
+            vim.lsp.buf_detach_client(ev.buf, ev.data.client_id)
+          end)
+          return
+        end
+
         local opts = { buffer = ev.buf, noremap = true, silent = true }
         local keymap = vim.keymap
 
