@@ -85,6 +85,16 @@ return {
     },
     picker = {
       enabled = true,
+      sources = {
+        lsp_symbols = {
+          filter = {
+            typescript = true,
+            typescriptreact = true,
+            javascript = true,
+            javascriptreact = true,
+          },
+        },
+      },
       on_show = function(picker)
         if picker.opts.source == "explorer" then return end
         picker._prev_animate = vim.g.snacks_animate
