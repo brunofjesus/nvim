@@ -8,14 +8,17 @@ M.raw = {
   zellij = vim.env.ZELLIJ,
   tmux = vim.env.TMUX,
   vimruntime = vim.fn.expand("$VIMRUNTIME"),
-  nvim_ai = os.getenv("NVIM_AI"),
-  nvim_php = os.getenv("NVIM_PHP"),
+  nvim_ai = vim.env.NVIM_AI,
+  nvim_php = vim.env.NVIM_PHP,
+  opencode_server_url = vim.env.OPENCODE_SERVER_URL,
+  opencode_server_password = vim.env.OPENCODE_SERVER_PASSWORD or vim.env.OPENCODE_PASSWORD,
 }
 
 -- Computed boolean flags for common checks
 M.flags = {
   in_zellij = M.raw.zellij ~= nil,
   in_tmux = M.raw.tmux ~= nil,
+  opencode_remote = M.raw.opencode_server_url ~= nil,
 }
 
 -- Plugin loading conditions

@@ -9,7 +9,8 @@ return {
 		-- { "folke/snacks.nvim", opts = { input = {}, picker = {}, terminal = {} } },
 	},
 	config = function()
-		local opencode_cmd = "opencode"
+		local remote_url = env.raw.opencode_server_url
+		local opencode_cmd = remote_url and ("opencode --server " .. remote_url) or "opencode"
 		---@type snacks.terminal.Opts
 		local snacks_terminal_opts = {
 			win = {
@@ -18,6 +19,19 @@ return {
 				enter = false,
 			},
 		}
+
+		---@type opencode.server.Opts
+		local server_opts = remote_url
+				and {
+					url = remote_url,
+					password = env.raw.opencode_server_password,
+				}
+			or {
+				start = function()
+					require("snacks.terminal").open(opencode_cmd, snacks_terminal_opts)
+				end,
+			}
+
 		---@type opencode.Opts
 		vim.g.opencode_opts = {
 			-- Your configuration, if any — see `lua/opencode/config.lua`, or "goto definition".
@@ -33,11 +47,7 @@ return {
 					},
 				},
 			},
-			server = {
-				start = function()
-					require("snacks.terminal").open(opencode_cmd, snacks_terminal_opts)
-				end,
-			},
+			server = server_opts,
 		}
 
 		-- Recommended/example keymaps.
